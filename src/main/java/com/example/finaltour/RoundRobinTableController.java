@@ -1,13 +1,20 @@
 package com.example.finaltour;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -38,13 +45,7 @@ public class RoundRobinTableController implements Initializable {
     private Label tour_name;
 
     RoundRobin r = new RoundRobin("dd",false,"football",new Date(1111111));
-    Team team = new Team(r,"blgndu");
-    Team team2 = new Team(r,"6666");
 
-
-
-
-    ArrayList<Team> list = new ArrayList<>();
 
 
 
@@ -57,26 +58,26 @@ public class RoundRobinTableController implements Initializable {
         team_points.setCellValueFactory(new PropertyValueFactory<Team,Integer>("points"));
         team_gd.setCellValueFactory(new PropertyValueFactory<Team,Integer>("goalDifference"));
         team_name.setCellValueFactory(new PropertyValueFactory<Team,String>("name"));
-        team.addPoints(7);
-        team.addGoalsReceived(3);
-        team.addGoalsScored(15);
-        team2.addPoints(9);
-        team2.addGoalsReceived(3);
-        team2.addGoalsScored(18);
-        r.addTeam(team);
-        r.addTeam(team2);
-        list.add(team);
-        list.add(team2);
-        System.out.println(list);
-        Collections.sort(list);
-        System.out.println(list);
-        System.out.println(r.getTeams());
 
-        FXCollections.sort(FXCollections.observableArrayList(r.getTeams()));
-        System.out.println(r.getTeams());
 
         table.setItems(FXCollections.observableArrayList(r.getTeams()));
 
+
+    }
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    @FXML
+    void ToHome(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
