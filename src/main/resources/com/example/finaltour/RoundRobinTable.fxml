@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.RoundRobinTableController">
+   <children>
+      <TableView fx:id="table" layoutX="62.0" layoutY="96.0" prefHeight="412.0" prefWidth="897.0" stylesheets="@table_style.css">
+        <columns>
+          <TableColumn fx:id="team_name" prefWidth="150.0" text="Team" />
+          <TableColumn fx:id="team_points" prefWidth="150.0" text="Points" />
+            <TableColumn fx:id="team_wins" prefWidth="150.0" text="Wins" />
+            <TableColumn fx:id="team_losses" prefWidth="150.0" text="Losses" />
+            <TableColumn fx:id="team_draws" prefWidth="148.00003662109373" text="Draws" />
+            <TableColumn fx:id="team_gd" prefWidth="150.0" text="Goal Difference" />
+        </columns>
+      </TableView>
+      <Label fx:id="tour_name" alignment="CENTER" layoutX="140.0" layoutY="11.0" prefHeight="71.0" prefWidth="746.0" text="Touranment name" textFill="DARKBLUE">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <Button layoutX="283.0" layoutY="554.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="146.0" style="-fx-background-color: darkblue;" text="Tournament Page" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

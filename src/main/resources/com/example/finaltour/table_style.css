@@ -1,0 +1,26 @@
+.table-view{
+    -fx-background-color:transparent;
+    -fx-border-color:linear-gradient(to bottom right, darkblue,  #6495ED);
+    -fx-border-radius:8px;
+    -fx-padding:0px;
+}
+.table-view .table-column{
+    -fx-alignment:CENTER;
+}
+.table-view .column-header-background{
+    -fx-background-color:linear-gradient(to bottom right, darkblue,  #6495ED);
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius:8px 8px 0px 0px;
+}
+.table-view .column-header, .filler{
+    -fx-background-color: transparent;
+    -fx-size:40px
+}
+.table-view .column-header .filler{
+    -fx-text-fill:#ffffff;
+    -fx-font-size:"Arial";
+
+}
+.table-view .column-header .label {
+    -fx-text-fill: #ffffff; /* set the text color to white */
+}
