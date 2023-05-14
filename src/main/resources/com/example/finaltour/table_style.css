@@ -18,7 +18,7 @@
 }
 .table-view .column-header .filler{
     -fx-text-fill:#ffffff;
-    -fx-font-size:"Arial";
+    -fx-font-size:20px;
 
 }
 .table-view .column-header .label {

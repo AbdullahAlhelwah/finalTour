@@ -44,7 +44,8 @@ public class RoundRobinTableController implements Initializable {
     @FXML
     private Label tour_name;
 
-    RoundRobin r = new RoundRobin("dd",false,"football",new Date(1111111));
+
+    RoundRobin r = (RoundRobin) TournamentPageContoller.selectedTournament;
 
 
 
@@ -68,9 +69,9 @@ public class RoundRobinTableController implements Initializable {
     private Scene scene;
     private Parent root;
     @FXML
-    void ToHome(ActionEvent event) {
+    void ToTournament(ActionEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
+            root = FXMLLoader.load(getClass().getResource("TournamentPage.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

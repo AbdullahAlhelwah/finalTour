@@ -2,6 +2,8 @@ package com.example.finaltour;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -43,7 +45,7 @@ public class MyController implements Initializable {
     @FXML
     private Button showDetailsBottun;
 
-    Tournament selectedObjectTournament; // we save the object for tournament page.
+    public Tournament selectedObjectTournament; // we save the object for tournament page.
     
     // this method to set the action event for the button show Details
     public void switchToTournamentPage(ActionEvent event) {
@@ -89,19 +91,25 @@ public class MyController implements Initializable {
     RoundRobin t3 = new RoundRobin("tournament2", false, "football", null);
     RoundRobin t4 = new RoundRobin("tournament3", false, "football", null);
     RoundRobin t5 = new RoundRobin("tournament4", false, "football", null);
+    Elimination e = new Elimination("fff",false,"fff",new Date(0000));
 
     // this array will be used to populate the ListView.
-    String[] currentTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName()};
+    String[] currentTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName(),e.getName()};
     String[] prevtTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName()};
     String[] upCommintTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName()};
 
     // this array is to display the details of a tournament.
-    Tournament[] currentTournamentT = {t1,t2,t3,t4,t5};
+    Tournament[] currentTournamentT = {t1,t2,t3,t4,t5,e};
     Tournament[] prevTournamentT = {t1,t2,t3,t4,t5};
     Tournament[] upCommingTournamentT = {t1,t2,t3,t4,t5};
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ArrayList<Match> matches = e.getMatches();
+        matches.add(new Match(e,new Team(e,"sss"),new Team(e,"FFF"),new Date(1111)));
+        matches.add(new Match(e,new Team(e,"hhh"),new Team(e,"www"),new Date(1111)));
+        matches.add(new Match(e,new Team(e,"bbb"),new Team(e,"Fmmm"),new Date(1111)));
+        matches.add(new Match(e,new Team(e,"ooo"),new Team(e,"Fqq"),new Date(1111)));
         showDetailsBottun.setVisible(false); // it is not visibale untill a tournament is selected.
 
         // populating the Lists

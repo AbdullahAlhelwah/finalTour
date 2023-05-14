@@ -42,8 +42,11 @@ public class TournamentPageContoller {
     @FXML
     private TextFlow participantTextFlow;
 
-    Tournament selectedTournament;
+    static Tournament selectedTournament;
     Stage stage;
+    private Scene scene;
+    private Parent root;
+
 
     public void setSelectedTournament(Tournament t) {
         selectedTournament = t;
@@ -112,6 +115,25 @@ public class TournamentPageContoller {
 
         Text text = new Text(particpants);
         participantTextFlow.getChildren().add(text);  
+    }
+    @FXML
+    void toStanding(ActionEvent event) {
+        String destination;
+        if (selectedTournament instanceof Elimination)
+            destination = "EliminationPage.fxml";
+        else
+            destination = "RoundRobinTable.fxml";
+        try {
+            root = FXMLLoader.load(getClass().getResource(destination));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
     
 }
