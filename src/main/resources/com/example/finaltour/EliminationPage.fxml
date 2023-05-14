@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.EliminationPage">
+   <children>
+      <HBox layoutX="157.0" layoutY="142.0" prefHeight="523.0" prefWidth="213.0">
+         <children>
+            <VBox prefHeight="511.0" prefWidth="202.0">
+               <children>
+                  <VBox prefHeight="54.0" prefWidth="170.0">
+                     <children>
+                        <Line endX="105.22621154785156" endY="-0.41418302059173584" startX="-100.0" />
+                        <Line endX="112.09291076660156" endY="2.400012969970703" startX="-100.0">
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </Line>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="54.0" prefWidth="170.0">
+                     <children>
+                        <Line endX="107.29286193847656" endY="0.09289324283599854" startX="-100.0" />
+                        <Line endX="105.22621154785156" endY="0.8929107785224915" startX="-100.0">
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </Line>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox prefHeight="54.0" prefWidth="170.0">
+                     <children>
+                        <Line endX="108.09291076660156" endY="-1.207155704498291" startX="-100.0" />
+                        <Line endX="108.89286804199219" endY="-0.2070930302143097" startX="-100.0">
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </Line>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox prefHeight="54.0" prefWidth="170.0">
+                     <children>
+                        <Line endX="109.69291687011719" endY="-0.4142623841762543" startX="-100.0" />
+                        <Line endX="110.70001220703125" endY="1.099940538406372" startX="-100.0">
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </Line>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="523.0" prefWidth="1.0">
+               <children>
+                  <HBox prefHeight="56.0" prefWidth="63.0">
+                     <children>
+                        <Line endX="-99.79288482666016" endY="54.492889404296875" startX="-100.0" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="27.0">
+                     <children>
+                        <Line endX="-99.79288482666016" endY="54.492889404296875" startX="-100.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="166.0" prefHeight="55.0" prefWidth="50.0">
+                     <children>
+                        <Line endX="-99.79288482666016" endY="54.492889404296875" startX="-100.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="98.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="320.0" prefHeight="55.0" prefWidth="50.0">
+                     <children>
+                        <Line endX="-99.79288482666016" endY="54.492889404296875" startX="-100.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Line endX="-134.20001220703125" endY="150.26666259765625" layoutX="664.0" layoutY="170.0" startX="-134.20001220703125" startY="1.52587890625E-5" />
+      <Line endX="-157.20001220703125" endY="152.86663818359375" layoutX="687.0" layoutY="481.0" startX="-157.20001220703125" />
+      <Line endX="-79.26666259765625" endY="65.73332214355469" layoutX="759.0" layoutY="182.0" startX="-228.70001220703125" startY="65.73332214355469" />
+      <Line endX="17.36663818359375" endY="-1.56671142578125" layoutX="664.0" layoutY="557.0" startX="-132.5333251953125" startY="-1.56671142578125" />
+      <Line endX="-104.13336181640625" endY="306.93328857421875" layoutX="786.0" layoutY="248.0" startX="-104.13336181640625" startY="4.0000152587890625" />
+      <Line endX="1.5333251953125" layoutX="787.0" layoutY="400.0" startX="-105.63336181640625" />
+      <VBox layoutX="62.0" layoutY="126.0" prefHeight="555.0" prefWidth="68.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="71.0" text="Label" textFill="DARKBLUE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="71.0" text="Label" textFill="DARKBLUE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="52.0" prefHeight="41.0" prefWidth="71.0" text="Label" textFill="DARKBLUE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="70.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="93.0" prefHeight="41.0" prefWidth="71.0" text="Label" textFill="DARKBLUE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="135.0" prefHeight="41.0" prefWidth="71.0" text="Label" textFill="DARKBLUE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="65.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="176.0" prefHeight="41.0" prefWidth="71.0" text="Label" textFill="DARKBLUE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="71.0" text="Label" textFill="DARKBLUE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="60.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="71.0" text="Label" textFill="DARKBLUE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <Label alignment="CENTER" layoutX="314.0" layoutY="15.0" prefHeight="59.0" prefWidth="357.0" text="Tournamnet Name" textFill="DARKBLUE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <Line endX="21.29998779296875" endY="-0.4999847412109375" layoutX="508.0" layoutY="170.0" startX="-135.00003051757812" startY="1.52587890625E-5" />
+      <Line endX="36.29998779296875" endY="-0.23333740234375" layoutX="493.0" layoutY="321.0" startX="-120.00003051757812" startY="-0.23333740234375" />
+      <Line endX="30.29998779296875" endY="-0.5" layoutX="500.0" layoutY="481.0" startX="-127.00003051757812" />
+      <Line endX="29.29998779296875" endY="0.36663818359375" layoutX="500.0" layoutY="634.0" startX="-127.00003051757812" startY="-6.103515625E-5" />
+      <Label alignment="CENTER" layoutX="375.0" layoutY="145.0" prefHeight="27.0" prefWidth="155.0" text="Label" textFill="DARKBLUE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="379.0" layoutY="288.0" prefHeight="27.0" prefWidth="155.0" text="Label" textFill="DARKBLUE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="371.0" layoutY="449.0" prefHeight="27.0" prefWidth="155.0" text="Label" textFill="DARKBLUE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="369.0" layoutY="602.0" prefHeight="27.0" prefWidth="155.0" text="Label" textFill="DARKBLUE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="526.0" layoutY="524.0" prefHeight="27.0" prefWidth="162.0" text="Label" textFill="DARKBLUE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="524.0" layoutY="214.0" prefHeight="27.0" prefWidth="162.0" text="Label" textFill="DARKBLUE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="679.0" layoutY="365.0" prefHeight="27.0" prefWidth="146.0" text="Label" textFill="DARKBLUE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

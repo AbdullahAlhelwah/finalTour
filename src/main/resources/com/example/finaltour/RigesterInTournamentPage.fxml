@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.RigesterInTournamentController">
+   <children>
+      <VBox fx:id="textFieldsVbox" layoutX="250.0" layoutY="66.0" prefHeight="282.0" prefWidth="277.0" spacing="10.0">
+         <children>
+            <TextField fx:id="participantNameTextField" />
+            <HBox fx:id="memberHbox" prefHeight="56.0" prefWidth="235.0" spacing="5.0">
+               <children>
+                  <TextField fx:id="nameTextField" promptText="Name" />
+                  <TextField fx:id="idTextField" promptText="ID" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox fx:id="LabelsVbox" layoutX="126.0" layoutY="66.0" prefHeight="70.0" prefWidth="139.0" spacing="10.0">
+         <children>
+            <Label fx:id="participantNameLabel" text="Team Name: ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="membersLabel" text="Members: ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Button fx:id="confirmButton" layoutX="126.0" layoutY="149.0" mnemonicParsing="false" onAction="#confirm" text="Confirm" />
+      <Button fx:id="cancelButton" layoutX="126.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Cancel" />
+      <Button fx:id="addMembersButton" layoutX="546.0" layoutY="101.0" mnemonicParsing="false" onAction="#addNewTextField" text="Add" />
+   </children>
+</AnchorPane>
