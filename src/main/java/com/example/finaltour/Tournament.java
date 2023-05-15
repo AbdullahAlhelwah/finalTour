@@ -91,6 +91,9 @@ abstract public class Tournament implements Serializable {
     public void setWinner(Team winner) {
         this.winner = winner;
     }
+    public void setOpen(boolean p){
+        open = p;
+    }
 
     // abstract methods
     public abstract void generateMatches(int restDays) throws Exception;

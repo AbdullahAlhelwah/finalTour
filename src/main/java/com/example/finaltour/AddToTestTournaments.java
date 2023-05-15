@@ -15,6 +15,8 @@ public class AddToTestTournaments {
             te.addStudent(new Student("BoSad"+j,"20"+j));
             testTournament1.addTeam(te);
         }
+        testTournament1.setOpen(false);
+        testTournament2.setOpen(false);
         testTournament1.generateMatches(1);
         testTournament2.generateMatches(3);
         Main.tournaments.add(testTournament1);
