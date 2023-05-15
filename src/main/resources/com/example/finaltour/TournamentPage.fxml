@@ -75,7 +75,7 @@
       <Label fx:id="nameLabel" layoutX="53.0" layoutY="122.0" prefHeight="36.0" prefWidth="228.0" text="Type" />
       <HBox layoutX="48.0" layoutY="374.0" prefHeight="36.0" prefWidth="214.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#cancelButton" style="-fx-background-color: #0026be;" text="Go Back" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#cancelButton" prefHeight="26.0" prefWidth="64.0" style="-fx-background-color: #0026be;" text="Go Back" textFill="WHITE">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
@@ -88,5 +88,7 @@
             <Button mnemonicParsing="false" onAction="#switchToRegisterPage" prefHeight="26.0" prefWidth="64.0" style="-fx-background-color: #0026be;" text="Rigester" textFill="WHITE" />
          </children>
       </HBox>
+      <Button layoutX="121.0" layoutY="410.0" mnemonicParsing="false" onAction="#toTeams" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #0026be;" text="Teams" textFill="WHITE" />
+      <Button layoutX="47.0" layoutY="410.0" mnemonicParsing="false" onAction="#toMatches" prefHeight="26.0" prefWidth="64.0" style="-fx-background-color: #0026be;" text="Matches" textFill="WHITE" />
    </children>
 </AnchorPane>
