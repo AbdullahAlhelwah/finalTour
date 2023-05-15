@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.MatchesByDateController">
+   <children>
+      <VBox layoutX="879.0" layoutY="404.0" prefHeight="65.0" prefWidth="175.0">
+         <children>
+            <DatePicker fx:id="datePicker" />
+            <Button mnemonicParsing="false" onAction="#findMatches" prefHeight="26.0" prefWidth="183.0" style="-fx-background-color: darkblue;" text="search" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <TableView fx:id="table" layoutX="219.0" layoutY="135.0" prefHeight="423.0" prefWidth="603.0" stylesheets="@table_style.css">
+        <columns>
+          <TableColumn fx:id="team1" prefWidth="150.0" text="team1" />
+          <TableColumn fx:id="team2" prefWidth="150.0" text="team2" />
+            <TableColumn fx:id="TorName" prefWidth="150.0" text="Tournament" />
+            <TableColumn fx:id="matchDate" prefWidth="150.0" text="Match Date" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="343.0" layoutY="42.0" prefWidth="600.0" text="Match list " textFill="DARKBLUE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="577.0" layoutY="615.0" mnemonicParsing="false" onAction="#toHome" prefHeight="26.0" prefWidth="171.0" style="-fx-background-color: darkblue;" text="Home Page" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

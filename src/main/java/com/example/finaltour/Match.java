@@ -1,5 +1,6 @@
 package com.example.finaltour;
 
+
 import java.util.Date;
 
 public class Match {
@@ -10,12 +11,19 @@ public class Match {
     private int goals2;
     private Date date;
     private boolean finshed = false;
+    private String team1Name;
+    private String team2Name;
+    private String tourName;
+
 
     //Match constructor
     public Match(Tournament t, Team a, Team b, Date d){
         tournament  = t;
         team1 = a;
         team2 = b;
+        team1Name = a.getName();
+        team2Name = b.getName();
+        tourName = t.getName();
         date = d;
     }
     //another constructors with 1/without Teams
@@ -51,6 +59,19 @@ public class Match {
     public boolean gethasFinshed() {
         return finshed;
     }
+
+    public String getTeam1Name() {
+        return team1Name;
+    }
+
+    public String getTeam2Name() {
+        return team2Name;
+    }
+
+    public String getTourName() {
+        return tourName;
+    }
+
     public Team getWinner() {
         //if the match is not finished, return null
         if (!finshed) {
