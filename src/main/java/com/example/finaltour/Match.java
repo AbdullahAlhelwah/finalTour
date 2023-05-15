@@ -106,19 +106,29 @@ public class Match {
             finshed = true;
             //check if the match is a round robin match
             if (tournament instanceof RoundRobin) {
+                team1.addGoalsReceived(b);
+                team1.addGoalsScored(a);
+                team2.addGoalsReceived(a);
+                team2.addGoalsScored(b);
+
                 //check if the match is a draw
                 if (a == b) {
                     team1.addPoints(1);
                     team2.addPoints(1);
+                    team1.modifyDraws(1);
+                    team2.modifyDraws(1);
                 }
                 //check if team1 wins
                 else if (a > b) {
                     team1.addPoints(3);
-
+                    team1.modifyWins(1);
+                    team2.modifyLoses(1);
                 }
                 //check if team2 wins
                 else {
                     team2.addPoints(3);
+                    team1.modifyLoses(1);
+                    team2.modifyWins(1);
                 }
             }
             //if the match is an elimination match, update the table
@@ -129,10 +139,18 @@ public class Match {
                 }
                 //check if team1 wins
                 else if (a > b) {
+                    team1.addGoalsReceived(b);
+                    team1.addGoalsScored(a);
+                    team2.addGoalsReceived(a);
+                    team2.addGoalsScored(b);
                     team1.addPoints(1);
                 }
                 //check if team2 wins
                 else {
+                    team1.addGoalsReceived(b);
+                    team1.addGoalsScored(a);
+                    team2.addGoalsReceived(a);
+                    team2.addGoalsScored(b);
                     team2.addPoints(1);
                 }
 
@@ -143,8 +161,21 @@ public class Match {
         }
 
     }
+
     // a method to edit the score of the match
     private void editScore(int a, int b) throws Exception {
+        //if there is no team1 or team2, throw an exception
+        if (team1 == null || team2 == null) {
+            throw new Exception("There must be two teams");
+        }
+        //if tournament has finished, throw an exception
+        if (tournament.getHasFinished()) {
+            throw new Exception("Tournament has finished");
+        }
+        //check if the score is valid
+        if (a < 0 || b < 0) {
+            throw new Exception("Goals cannot be negative");
+        }
         // if it is a round robin tournament, update the points of the teams
         //remove the old points
         if (tournament instanceof RoundRobin) {
@@ -152,15 +183,20 @@ public class Match {
             if (goals1 == goals2) {
                 team1.addPoints(-1);
                 team2.addPoints(-1);
+                team1.modifyDraws(-1);
+                team2.modifyDraws(-1);
             }
             //check if team1 wins
             else if (goals1 > goals2) {
                 team1.addPoints(-3);
-
+                team1.modifyWins(-1);
+                team2.modifyLoses(-1);
             }
             //check if team2 wins
             else {
                 team2.addPoints(-3);
+                team1.modifyLoses(-1);
+                team2.modifyWins(-1);
             }
             //record the new result
             finshed = false;
@@ -168,25 +204,7 @@ public class Match {
         }
         //if it is an elimination tournament, update the table
         else {
-            //check if the match is a draw, return exception
-            if (a == b) {
-                throw new Exception("There must be a winner");
-            }
-            //check if team1 wins
-            else if (a > b) {
-                team1.addPoints(-1);
-            }
-            //check if team2 wins
-            else {
-                team2.addPoints(-1);
-            }
-
-            //edit the bracket first
-            ((Elimination) tournament).editBracket(this);
-
-            //record the new result
-            finshed = false;
-            recordScore(a, b);
+            throw new Exception("Cant modify scores for elimination tournament.");
         }
     }
 
