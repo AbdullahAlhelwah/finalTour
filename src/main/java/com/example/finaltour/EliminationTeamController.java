@@ -63,6 +63,8 @@ public class EliminationTeamController implements Initializable {
 
     }
 
+    ArrayList<Team> teams = TournamentPageContoller.selectedTournament.getTeams();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
