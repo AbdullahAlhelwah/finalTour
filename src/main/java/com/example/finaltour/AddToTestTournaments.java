@@ -17,11 +17,14 @@ public class AddToTestTournaments {
         }
         testTournament1.setOpen(false);
         testTournament2.setOpen(false);
+        System.out.println(testTournament1.getOpen());
         testTournament1.generateMatches(1);
         testTournament2.generateMatches(3);
         Main.tournaments.add(testTournament1);
         Main.tournaments.add(testTournament2);
         Main.saveTournaments();
+
+        System.out.println(Main.tournaments.get(1).matches.get(0));
         
 
 

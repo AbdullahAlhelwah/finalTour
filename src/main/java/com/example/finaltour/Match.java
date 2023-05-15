@@ -234,7 +234,7 @@ public class Match implements Serializable{
 
     
     public String toString() {
-        return team1.getName()+" vs "+ team2.getName();
+        return team1.getName()+" vs "+ team2.getName()+"  "+date.toString();
     }
 
 }

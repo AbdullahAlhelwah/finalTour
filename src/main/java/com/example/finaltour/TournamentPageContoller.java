@@ -98,7 +98,7 @@ public class TournamentPageContoller {
         else
             typeLabel.setText("Elimination");
 
-        if(t.getHasFinished() == true) {
+        if(!t.getOpen()) {
             statusLabel.setText("Closed");
             statusLabel.setTextFill(Color.RED);
         } else {

@@ -63,26 +63,25 @@ public class MatchesByDateController implements Initializable {
         
         matches.clear();
 
-        String dateString = "2023-05-15"; // The given date string  // selected date
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        // String dateString = "2023-05-15"; // The given date string  // selected date
+        // SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-        try {
-            Date date = dateFormat.parse(dateString);
-            matches.add(new Match(r,t1,t2,date));
-            System.out.println(date);
-        } catch (ParseException e) {
-            System.out.println("Invalid date format");
-        }
+        // try {
+        //     Date date = dateFormat.parse(dateString);
+        //     matches.add(new Match(r,t1,t2,date));
+        //     System.out.println(date);
+        // } catch (ParseException e) {
+        //     System.out.println("Invalid date format");
+        // }
 
         LocalDate date0 = datePicker.getValue();
-        Date date = Date.from(date0.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        for (int i=0;i<aLLmatches.size();i++)
-            if (aLLmatches.get(i).getDate().equals(date))
+        for (int i=0;i<aLLmatches.size();i++){
+            LocalDate localDate = aLLmatches.get(i).getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            if (localDate.equals(date0))
                 matches.add(aLLmatches.get(i));
-            
+            }
 
 
-        
         matchDate.setCellValueFactory(new PropertyValueFactory<Match,Date>("date"));
         team1.setCellValueFactory(new PropertyValueFactory<Match,String>("team1Name"));
         team2.setCellValueFactory(new PropertyValueFactory<Match,String>("team2Name"));
