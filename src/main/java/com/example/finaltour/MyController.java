@@ -113,9 +113,20 @@ public class MyController implements Initializable {
     ArrayList<Tournament> prevTournamentT =  new ArrayList<>();
     ArrayList<Tournament> nexTournamentT = new ArrayList<>();
 
+    for(Tournament tt : Main.tournaments){
+        if(tt.getStatues().equals("Archived")){
+            prevTournamentT.add(tt);
+            prevTournamentsNames.add(tt.getName());
+        }else if(tt.getStatues().equals("started")){
+            currentTourNames.add(tt.getName());
+            currentTournamentT.add(tt);
+        }else{
+            nexTournamentT.add(tt);
+            nextTournamentNames.add(tt.getName());
+        }
+    }
 
-
-
+    
 
 
 
@@ -130,8 +141,10 @@ public class MyController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArrayList<Match> matches = e.getMatches();
-        e.addTeam(new Team(e,"sss"));
-
+        matches.add(new Match(e,new Team(e,"sss"),new Team(e,"FFF"),new Date(1111)));
+        matches.add(new Match(e,new Team(e,"hhh"),new Team(e,"www"),new Date(1111)));
+        matches.add(new Match(e,new Team(e,"bbb"),new Team(e,"Fmmm"),new Date(1111)));
+        matches.add(new Match(e,new Team(e,"ooo"),new Team(e,"Fqq"),new Date(1111)));
         showDetailsBottun.setVisible(false); // it is not visibale untill a tournament is selected.
 
         // populating the Lists
