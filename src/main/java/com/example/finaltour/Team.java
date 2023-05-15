@@ -1,8 +1,9 @@
 package com.example.finaltour;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Team implements Comparable<Team>{
+public class Team implements Comparable<Team>,Serializable{
     private String name;
     private ArrayList<Student> members = new ArrayList<>();
     private Tournament tournament;
@@ -14,8 +15,11 @@ public class Team implements Comparable<Team>{
     private int losses;
     private int draws;
     // for individual tournaments
-    public Team(Tournament t,Student s){
-        this(t,s.getName());
+    public Team(Tournament t,Student s) throws Exception{
+        if(s.participateIn(t)) throw new Exception("Student already in tournament");
+
+        tournament = t;
+        name = s.getName();
 
         // fail message
     }

@@ -26,6 +26,7 @@ abstract public class Tournament implements Serializable {
         this.endDate = endDate;
         this.teams = new ArrayList<>();
         this.hasFinished = false;
+        matches = new ArrayList<>();
     }
     // another constructor without endDate; automatically set by the system
     public Tournament(String name, boolean isIndividual, String sport, Date startDate) {
@@ -35,6 +36,7 @@ abstract public class Tournament implements Serializable {
         this.startDate = startDate;
         this.teams = new ArrayList<>();
         this.hasFinished = false;
+        matches =  new ArrayList<>();
     }
 
     // Getters

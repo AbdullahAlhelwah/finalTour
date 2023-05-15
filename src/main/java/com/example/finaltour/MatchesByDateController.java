@@ -49,7 +49,9 @@ public class MatchesByDateController implements Initializable {
     RoundRobin r = new RoundRobin("ddd",false,"fff",new Date());
     Team t1 = new Team(r,"ggg");
     Team t2 = new Team(r,"hhh");
+    ArrayList<Match> aLLmatches = new ArrayList<>();
     ArrayList<Match> matches = new ArrayList<>();
+    
 
 
 
@@ -57,10 +59,11 @@ public class MatchesByDateController implements Initializable {
 
     @FXML
     void findMatches(ActionEvent event) {
-
+        
+        
         matches.clear();
 
-        String dateString = "2023-05-15"; // The given date string
+        String dateString = "2023-05-15"; // The given date string  // selected date
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
@@ -70,14 +73,16 @@ public class MatchesByDateController implements Initializable {
         } catch (ParseException e) {
             System.out.println("Invalid date format");
         }
+
         LocalDate date0 = datePicker.getValue();
         Date date = Date.from(date0.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        for (int i=0;i<matches.size();i++)
-            if (!matches.get(i).getDate().equals(date))
-                matches.remove(i);
+        for (int i=0;i<aLLmatches.size();i++)
+            if (aLLmatches.get(i).getDate().equals(date))
+                matches.add(aLLmatches.get(i));
+            
 
 
-
+        
         matchDate.setCellValueFactory(new PropertyValueFactory<Match,Date>("date"));
         team1.setCellValueFactory(new PropertyValueFactory<Match,String>("team1Name"));
         team2.setCellValueFactory(new PropertyValueFactory<Match,String>("team2Name"));
@@ -107,6 +112,12 @@ public class MatchesByDateController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // adding matches from all tournaments to arrayList
+        for(Tournament t : Main.tournaments){
+            for(Match m: t.matches){
+                aLLmatches.add(m);
+            }
+        }
         matches.clear();
 
 
