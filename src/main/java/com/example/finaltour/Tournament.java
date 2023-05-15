@@ -117,7 +117,7 @@ abstract public class Tournament implements Serializable {
         
         Date todayDate = new Date();
         if (hasFinished ) return "Archived";
-        if (startDate.compareTo(todayDate) > 0 ) return "started";
+        if (startDate.compareTo(todayDate) >= 0 ) return "started";
         
         if (open) return "Open";
         return "close";
