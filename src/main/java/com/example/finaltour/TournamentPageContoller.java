@@ -148,7 +148,6 @@ public class TournamentPageContoller {
     }
     @FXML
     void toTeams(ActionEvent event) {
-
         try {
                 root = FXMLLoader.load(getClass().getResource("EliminationTeam.fxml"));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
