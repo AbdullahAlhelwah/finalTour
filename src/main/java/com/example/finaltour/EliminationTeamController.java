@@ -62,8 +62,8 @@ public class EliminationTeamController implements Initializable {
         }
 
     }
-    Elimination e = (Elimination) TournamentPageContoller.selectedTournament;
-    ArrayList<Team> teams = e.getTeams();
+
+    ArrayList<Team> teams = TournamentPageContoller.selectedTournament.getTeams();
 
 
     @Override
