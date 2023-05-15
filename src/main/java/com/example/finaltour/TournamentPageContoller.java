@@ -148,29 +148,19 @@ public class TournamentPageContoller {
     }
     @FXML
     void toTeams(ActionEvent event) {
-        if (selectedTournament instanceof RoundRobin)
-            try {
-                root = FXMLLoader.load(getClass().getResource("RoundRobinTable.fxml"));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        else{
-            try {
+
+        try {
                 root = FXMLLoader.load(getClass().getResource("EliminationTeam.fxml"));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } catch (IOException e) {
+        }catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-
     }
+
+
     @FXML
     void toMatches(ActionEvent event) {
 

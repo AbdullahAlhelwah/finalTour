@@ -112,18 +112,8 @@ public class MyController implements Initializable {
     ArrayList<Tournament> currentTournamentT = new ArrayList<>();
     ArrayList<Tournament> prevTournamentT =  new ArrayList<>();
     ArrayList<Tournament> nexTournamentT = new ArrayList<>();
-    for(Tournament tt : Main.tournaments){
-        if(tt.getStatues().equals("Archived")){
-            prevTournamentT.add(tt);
-            prevTournamentsNames.add(tt.getName());
-        }else if(tt.getStatues().equals("started")){
-            currentTourNames.add(tt.getName());
-            currentTournamentT.add(tt);
-        }else{
-            nexTournamentT.add(tt);
-            nextTournamentNames.add(tt.getName());
-        }
-    }
+
+
 
 
 
