@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -119,21 +120,31 @@ public class TournamentPageContoller {
     @FXML
     void toStanding(ActionEvent event) {
         String destination;
-        if (selectedTournament instanceof Elimination)
-            destination = "EliminationPage.fxml";
-        else
-            destination = "RoundRobinTable.fxml";
-        try {
-            root = FXMLLoader.load(getClass().getResource(destination));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (selectedTournament.getMatches().size()==0 && selectedTournament instanceof Elimination){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Fail");
+            alert.setHeaderText("Standing is not shown");
+            alert.setContentText("Matches have not been generated yet.");
+            alert.showAndWait();
+
         }
+        else {
+            if (selectedTournament instanceof Elimination)
+                destination = "EliminationPage.fxml";
+            else
+                destination = "RoundRobinTable.fxml";
+            try {
+                root = FXMLLoader.load(getClass().getResource(destination));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                }
 
 
+        }
     }
     
 }

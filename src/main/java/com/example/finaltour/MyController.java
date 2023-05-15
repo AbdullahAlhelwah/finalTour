@@ -106,10 +106,10 @@ public class MyController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArrayList<Match> matches = e.getMatches();
-        matches.add(new Match(e,new Team(e,"sss"),new Team(e,"FFF"),new Date(1111)));
-        matches.add(new Match(e,new Team(e,"hhh"),new Team(e,"www"),new Date(1111)));
-        matches.add(new Match(e,new Team(e,"bbb"),new Team(e,"Fmmm"),new Date(1111)));
-        matches.add(new Match(e,new Team(e,"ooo"),new Team(e,"Fqq"),new Date(1111)));
+//        matches.add(new Match(e,new Team(e,"sss"),new Team(e,"FFF"),new Date(1111)));
+//        matches.add(new Match(e,new Team(e,"hhh"),new Team(e,"www"),new Date(1111)));
+//        matches.add(new Match(e,new Team(e,"bbb"),new Team(e,"Fmmm"),new Date(1111)));
+//        matches.add(new Match(e,new Team(e,"ooo"),new Team(e,"Fqq"),new Date(1111)));
         showDetailsBottun.setVisible(false); // it is not visibale untill a tournament is selected.
 
         // populating the Lists
