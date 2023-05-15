@@ -108,6 +108,12 @@ public class Team implements Comparable<Team>{
     public void modifyWins(int n){
         wins += n;
     }
+    public void modifyLoses(int n){
+        losses+=n;
+    }
+    public void modifyDraws(int n){
+        draws+=n;
+    }
 
 
 
