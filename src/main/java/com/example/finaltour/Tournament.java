@@ -6,8 +6,12 @@ import java.util.Date;
 import java.util.ArrayList;
 
 abstract public class Tournament implements Serializable {
+    private static final long serialVersionUID = -1750833267063088951L;
+
+
     // attributes
     private String name;
+    private boolean open;
     private boolean isIndividual;
     private String sport;
     private ArrayList<Team> teams;
@@ -27,6 +31,7 @@ abstract public class Tournament implements Serializable {
         this.teams = new ArrayList<>();
         this.hasFinished = false;
         matches = new ArrayList<>();
+        open = true;
     }
     // another constructor without endDate; automatically set by the system
     public Tournament(String name, boolean isIndividual, String sport, Date startDate) {
@@ -37,6 +42,7 @@ abstract public class Tournament implements Serializable {
         this.teams = new ArrayList<>();
         this.hasFinished = false;
         matches =  new ArrayList<>();
+        open = true;
     }
 
     // Getters
@@ -67,6 +73,9 @@ abstract public class Tournament implements Serializable {
     public Team getWinner() {
         return winner;
     }
+    public boolean getOpen(){
+        return open;
+    }
 
     // Setters
     public void setEndDate(Date endDate) {
@@ -96,6 +105,16 @@ abstract public class Tournament implements Serializable {
         }
 
         return null;
+    }
+    public String getStatues(){
+        
+        Date todayDate = new Date();
+        if (hasFinished ) return "Archived";
+        if (startDate.compareTo(todayDate) > 0 ) return "started";
+        
+        if (open) return "Open";
+        return "close";
+
     }
 
     public String getDetails() {

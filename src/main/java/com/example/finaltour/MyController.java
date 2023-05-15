@@ -83,25 +83,59 @@ public class MyController implements Initializable {
     @FXML
     private TextFlow textFlow;
 
-    private String selectedTournament;
+    private String selectedTournamentName;
 
     //test samples. this should be read from a file.
-    RoundRobin t1 = new RoundRobin("البطولة العالمية للمتأزمين", false, "football", null);
-    RoundRobin t2 = new RoundRobin("tournament1", true, "football", null);
-    RoundRobin t3 = new RoundRobin("tournament2", false, "football", null);
-    RoundRobin t4 = new RoundRobin("tournament3", false, "football", null);
-    RoundRobin t5 = new RoundRobin("tournament4", false, "football", null);
+
+
+    // RoundRobin t1 = new RoundRobin("البطولة العالمية للمتأزمين", false, "football", null);
+    // RoundRobin t2 = new RoundRobin("البطولة الدولية للمتأزمين", true, "football", null);
+    // RoundRobin t3 = new RoundRobin("tournament2", false, "football", null);
+    // RoundRobin t4 = new RoundRobin("tournament3", false, "football", null);
+    // RoundRobin t5 = new RoundRobin("tournament4", false, "football", null);
     Elimination e = new Elimination("fff",false,"fff",new Date(0000));
 
+
     // this array will be used to populate the ListView.
-    String[] currentTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName(),e.getName()};
-    String[] prevtTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName()};
-    String[] upCommintTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName()};
+    // String[] currentTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName(),e.getName()};
+    // String[] prevtTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName()};
+    // String[] upCommintTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName()};
 
     // this array is to display the details of a tournament.
-    Tournament[] currentTournamentT = {t1,t2,t3,t4,t5,e};
-    Tournament[] prevTournamentT = {t1,t2,t3,t4,t5};
-    Tournament[] upCommingTournamentT = {t1,t2,t3,t4,t5};
+    // Tournament[] currentTournamentT = {t1,t2,t3,t4,t5,e};
+    // Tournament[] prevTournamentT = {t1,t2,t3,t4,t5};
+    // Tournament[] upCommingTournamentT = {t1,t2,t3,t4,t5};
+
+    ArrayList<String> currentTourNames = new ArrayList<>();
+    ArrayList<String> prevTournamentsNames = new ArrayList<>();
+    ArrayList<String> nextTournamentNames = new ArrayList<>();
+    ArrayList<Tournament> currentTournamentT = new ArrayList<>();
+    ArrayList<Tournament> prevTournamentT =  new ArrayList<>();
+    ArrayList<Tournament> nexTournamentT = new ArrayList<>();
+    for(Tournament tt : Main.tournaments){
+        if(tt.getStatues().equals("Archived")){
+            prevTournamentT.add(tt);
+            prevTournamentsNames.add(tt.getName());
+        }else if(tt.getStatues().equals("started")){
+            currentTourNames.add(tt.getName());
+            currentTournamentT.add(tt);
+        }else{
+            nexTournamentT.add(tt);
+            nextTournamentNames.add(tt.getName());
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -113,24 +147,24 @@ public class MyController implements Initializable {
         showDetailsBottun.setVisible(false); // it is not visibale untill a tournament is selected.
 
         // populating the Lists
-        currentTournaments.getItems().addAll(currentTournament);
-        prevTournaments.getItems().addAll(currentTournament);
-        upcommingTournaments.getItems().addAll(currentTournament);
+        currentTournaments.getItems().addAll(currentTourNames);
+        prevTournaments.getItems().addAll(prevTournamentsNames);
+        upcommingTournaments.getItems().addAll(nextTournamentNames);
 
         // this code listen for any change in the selected cell and change the lable below
         currentTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()  {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                selectedTournament = currentTournaments.getSelectionModel().getSelectedItem(); // get the name of the selected tournament
+                selectedTournamentName = currentTournaments.getSelectionModel().getSelectedItem(); // get the name of the selected tournament
 
                 //search for the tournament and display its details
-                for(int i = 0; i < currentTournamentT.length; i++) {
-                    if(currentTournamentT[i].getName().equals(selectedTournament)) {
-                        Text text = new Text("Additionally, you can use the Region class, which is the base class for all layout containers, to set the preferred size of the node. When the size of the window changes, the layout container will adjust the size of the node according to its preferred size.");
+                for(int i = 0; i < currentTournamentT.size(); i++) {
+                    if(currentTournamentT.get(i).getName().equals(selectedTournamentName)) {
+                        Text text = new Text("\nAdditionally, you can use the Region class, which is the base class for all layout containers, to set the preferred size of the node. When the size of the window changes, the layout container will adjust the size of the node according to its preferred size.");
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
-                        selectedObjectTournament = currentTournamentT[i];
+                        selectedObjectTournament = currentTournamentT.get(i);
                         showDetailsBottun.setVisible(true);
                         
                     }
@@ -148,14 +182,14 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                selectedTournament = prevTournaments.getSelectionModel().getSelectedItem();
+                selectedTournamentName = prevTournaments.getSelectionModel().getSelectedItem();
 
-                for(int i = 0; i < prevTournamentT.length; i++) {
-                    if(prevTournamentT[i].getName().equals(selectedTournament)) { // get the object givin the name of the tournament
+                for(int i = 0; i < prevTournamentT.size(); i++) {
+                    if(prevTournamentT.get(i).getName().equals(selectedTournamentName)) { // get the object givin the name of the tournament
                         Text text = new Text("Additionally, you can use the Region class, which is the base class for all layout containers, to set the preferred size of the node. When the size of the window changes, the layout container will adjust the size of the node according to its preferred size.");
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
-                        selectedObjectTournament = prevTournamentT[i]; // this to get the tournament object and send to tournament Page
+                        selectedObjectTournament = prevTournamentT.get(i); // this to get the tournament object and send to tournament Page
                         showDetailsBottun.setVisible(true);
                     }
                 }
@@ -166,14 +200,14 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                selectedTournament = upcommingTournaments.getSelectionModel().getSelectedItem();
+                selectedTournamentName = upcommingTournaments.getSelectionModel().getSelectedItem();
 
-                for(int i = 0; i < upCommingTournamentT.length; i++) {
-                    if(upCommingTournamentT[i].getName().equals(selectedTournament)) {
+                for(int i = 0; i < nexTournamentT.size(); i++) {
+                    if(nexTournamentT.get(i).getName().equals(selectedTournamentName)) {
                         Text text = new Text("Additionally, you can use the Region class, which is the base class for all layout containers, to set the preferred size of the node. When the size of the window changes, the layout container will adjust the size of the node according to its preferred size.");
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
-                        selectedObjectTournament = upCommingTournamentT[i]; // this to get the tournament object and send to tournament Page
+                        selectedObjectTournament = nexTournamentT.get(i); // this to get the tournament object and send to tournament Page
                         showDetailsBottun.setVisible(true);
                     }
                 }
