@@ -112,6 +112,7 @@ public class MyController implements Initializable {
     ArrayList<Tournament> currentTournamentT = new ArrayList<>();
     ArrayList<Tournament> prevTournamentT =  new ArrayList<>();
     ArrayList<Tournament> nexTournamentT = new ArrayList<>();
+
     for(Tournament tt : Main.tournaments){
         if(tt.getStatues().equals("Archived")){
             prevTournamentT.add(tt);
@@ -125,7 +126,7 @@ public class MyController implements Initializable {
         }
     }
 
-
+    
 
 
 
