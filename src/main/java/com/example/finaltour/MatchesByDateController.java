@@ -57,6 +57,7 @@ public class MatchesByDateController implements Initializable {
 
     @FXML
     void findMatches(ActionEvent event) {
+
         matches.clear();
 
         String dateString = "2023-05-15"; // The given date string

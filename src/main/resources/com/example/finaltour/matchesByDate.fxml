@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.MatchesByDateController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.MatchesByDateController">
    <children>
-      <VBox layoutX="879.0" layoutY="404.0" prefHeight="65.0" prefWidth="175.0">
+      <VBox layoutX="836.0" layoutY="402.0" prefHeight="65.0" prefWidth="175.0">
          <children>
             <DatePicker fx:id="datePicker" />
             <Button mnemonicParsing="false" onAction="#findMatches" prefHeight="26.0" prefWidth="183.0" style="-fx-background-color: darkblue;" text="search" textFill="WHITE">
@@ -25,7 +25,7 @@
             </Button>
          </children>
       </VBox>
-      <TableView fx:id="table" layoutX="219.0" layoutY="135.0" prefHeight="423.0" prefWidth="603.0" stylesheets="@table_style.css">
+      <TableView fx:id="table" layoutX="144.0" layoutY="132.0" prefHeight="423.0" prefWidth="603.0" stylesheets="@table_style.css">
         <columns>
           <TableColumn fx:id="team1" prefWidth="150.0" text="team1" />
           <TableColumn fx:id="team2" prefWidth="150.0" text="team2" />
@@ -33,7 +33,7 @@
             <TableColumn fx:id="matchDate" prefWidth="150.0" text="Match Date" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" layoutX="343.0" layoutY="42.0" prefWidth="600.0" text="Match list " textFill="DARKBLUE">
+      <Label alignment="CENTER" layoutX="146.0" layoutY="40.0" prefWidth="600.0" text="Match list " textFill="DARKBLUE">
          <font>
             <Font name="System Bold" size="48.0" />
          </font>

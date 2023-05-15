@@ -11,7 +11,7 @@ public class Main {
     }
 
     // a method to save the tournaments objects to a file named "tournaments.bin"
-    private static void saveTournaments() {
+    public static void saveTournaments() {
         //if there are no tournament to save, just exit
         if(tournaments == null)
             return;

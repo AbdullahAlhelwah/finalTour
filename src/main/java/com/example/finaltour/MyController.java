@@ -181,6 +181,42 @@ public class MyController implements Initializable {
         });
 
     }
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    @FXML
+    void toMatches(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("matchesByDate.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @FXML
+    void toFilter(ActionEvent event) {
+        Stage secondStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("filterPage.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Scene secondScene = new Scene(root);
+
+        // Set the stage's scene to the second scene
+        secondStage.setScene(secondScene);
+
+        // Show the second window
+        secondStage.show();
+
+    }
 
   
 }

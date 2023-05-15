@@ -66,20 +66,13 @@ public class EliminationPageController implements Initializable {
     @FXML
     private Label team9;
     private Stage stage;
-    private Scene scene;
-    private Parent root;
+
 
     @FXML
     void toTournamentPage(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("TournamentPage.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.close();
 
     }
 

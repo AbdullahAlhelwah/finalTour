@@ -1,6 +1,5 @@
 package com.example.finaltour;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 
 import java.io.Serializable;
 import java.util.Date;
