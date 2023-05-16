@@ -63,13 +63,13 @@ public class MatchesByDateController implements Initializable {
         
         matches.clear();
 
+
         String dateString = "2023-05-15"; // The given date string  // selected date
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
             Date date = dateFormat.parse(dateString);
             matches.add(new Match(r,t1,t2,date));
-            System.out.println(date);
         } catch (ParseException e) {
             System.out.println("Invalid date format");
         }
