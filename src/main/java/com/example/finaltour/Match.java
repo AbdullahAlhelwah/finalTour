@@ -32,6 +32,7 @@ public class Match implements Serializable{
         tournament  = t;
         date = d;
         team1 = a;
+        team1Name = team1.getName();
     }
     public Match(Tournament t, Date d){
         tournament  = t;
@@ -96,9 +97,11 @@ public class Match implements Serializable{
     }
     public void setTeam1(Team team1) {
         this.team1 = team1;
+        team1Name = team1.getName();
     }
     public void setTeam2(Team team2) {
         this.team2 = team2;
+        team2Name = team2.getName();
     }
 
     // a method to record the score of the match (We can use this method to edit the score as well as record it)
