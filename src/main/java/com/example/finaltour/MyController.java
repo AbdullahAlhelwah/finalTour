@@ -11,6 +11,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -192,7 +193,6 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                selectedObjectTournament = null;
                 selectedTournamentName = prevTournaments.getSelectionModel().getSelectedItem();
 
                 for(int i = 0; i < prevTournamentT.size(); i++) {
@@ -211,7 +211,6 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                selectedObjectTournament = null;
                 selectedTournamentName = upcommingTournaments.getSelectionModel().getSelectedItem();
 
                 for(int i = 0; i < nexTournamentT.size(); i++) {

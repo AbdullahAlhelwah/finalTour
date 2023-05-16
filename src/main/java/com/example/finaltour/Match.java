@@ -129,6 +129,7 @@ public class Match implements Serializable{
             throw new Exception("Goals cannot be negative");
         }
 
+
         //if the match has already been played, Go to editScore method
         if (finshed) {
             editScore(a, b);
@@ -146,7 +147,7 @@ public class Match implements Serializable{
                 team1.addGoalsScored(a);
                 team2.addGoalsReceived(a);
                 team2.addGoalsScored(b);
-
+                ((RoundRobin) tournament).updateTable();
                 //check if the match is a draw
                 if (a == b) {
                     team1.addPoints(1);
@@ -166,6 +167,7 @@ public class Match implements Serializable{
                     team1.modifyLoses(1);
                     team2.modifyWins(1);
                 }
+                
             }
             //if the match is an elimination match, update the table
             else {
@@ -240,7 +242,7 @@ public class Match implements Serializable{
         }
         //if it is an elimination tournament, update the table
         else {
-            throw new Exception("Cant modify scores for elimination tournament.");
+            throw new Exception("Can't modify scores for elimination tournament.");
         }
     }
 
