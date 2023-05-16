@@ -7,8 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="304.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.StudentProfileContoller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="304.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.StudentProfileContoller">
    <children>
       <Label layoutX="26.0" layoutY="53.0" text="Name: " />
       <Label fx:id="stuNameLabel" layoutX="63.0" layoutY="54.0" text="Name: " />
@@ -18,8 +17,11 @@
       <ListView fx:id="tournamentsList" layoutX="156.0" layoutY="123.0" prefHeight="210.0" prefWidth="123.0" />
       <Label layoutX="68.0" layoutY="95.0" text="Teams" />
       <Label layoutX="183.0" layoutY="95.0" text="Tournaments" />
-      <Rectangle arcHeight="5.0" fill="DODGERBLUE" height="38.0" stroke="TRANSPARENT" strokeType="INSIDE" width="304.0" />
-      <Button fx:id="goBackButton" layoutX="126.0" layoutY="347.0" mnemonicParsing="false" text="Button" />
+      <Rectangle arcHeight="5.0" fill="#0026be" height="38.0" stroke="TRANSPARENT" strokeType="INSIDE" width="304.0" />
+      <Button fx:id="goBackButton" layoutX="126.0" layoutY="347.0" mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: #0026be;" text="Home" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
       <Label layoutX="22.0" layoutY="11.0" text="Student Profile" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />

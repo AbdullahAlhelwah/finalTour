@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 
 public class StudentProfileContoller implements Initializable {
     
@@ -52,6 +55,13 @@ public class StudentProfileContoller implements Initializable {
         }
         teamsList.getItems().addAll(teams);
         tournamentsList.getItems().addAll(tournaments);
+    }
+    private Stage stage;
+    @FXML
+    void goBack(ActionEvent event) {
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.close();
+
     }
 
 }
