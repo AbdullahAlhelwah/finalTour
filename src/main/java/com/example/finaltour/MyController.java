@@ -190,7 +190,7 @@ public class MyController implements Initializable {
 
                 for(int i = 0; i < prevTournamentT.size(); i++) {
                     if(prevTournamentT.get(i).getName().equals(selectedTournamentName)) { // get the object givin the name of the tournament
-                        Text text = new Text(currentTournamentT.get(i).getDetails());
+                        Text text = new Text(prevTournamentT.get(i).getDetails());
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
                         selectedObjectTournament = prevTournamentT.get(i); // this to get the tournament object and send to tournament Page
@@ -208,7 +208,7 @@ public class MyController implements Initializable {
 
                 for(int i = 0; i < nexTournamentT.size(); i++) {
                     if(nexTournamentT.get(i).getName().equals(selectedTournamentName)) {
-                        Text text = new Text(currentTournamentT.get(i).getDetails());
+                        Text text = new Text(nexTournamentT.get(i).getDetails());
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
                         selectedObjectTournament = nexTournamentT.get(i); // this to get the tournament object and send to tournament Page
