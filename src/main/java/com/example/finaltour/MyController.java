@@ -17,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -29,6 +30,9 @@ public class MyController implements Initializable {
     private Stage logInStage;
     private Scene logInscene;
     private Parent logInroot;
+
+    @FXML
+    private Label welcomeMsg;
 
     public void switchToLogInPage(ActionEvent event) {
         try {
@@ -131,6 +135,7 @@ public class MyController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        welcomeMsg.setText("Welcome " + Main.username);
         for(Tournament tt: Main.tournaments){
             if(tt.getStatues().equals("Archived")){
                 prevTournamentT.add(tt);

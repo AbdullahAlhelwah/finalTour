@@ -80,12 +80,12 @@ public class SignInController{
                 name = userInfo[3];
                 email = userInfo[userInfo.length - 2];
             }
-            // close connection, return true
-            con.disconnect();
-            //show welcome massage, in black
+            //show welcome massage
             label.setText("Welcome " + name);
-            label.setStyle("-fx-text-fill: black;");
-
+            Main.isAdmin = isAdmin;
+            Main.username = name;
+            // close connection
+            con.disconnect();
             //switch to the next page
             if (isAdmin) {
                 switchToAdminPage(event);
