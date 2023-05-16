@@ -245,7 +245,7 @@ public class MyController implements Initializable {
     void toFilter(ActionEvent event) {
         Stage secondStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("filterPage.fxml"));
-        Parent root = null;
+        // Parent root =  null;
         try {
             root = loader.load();
         } catch (IOException ex) {

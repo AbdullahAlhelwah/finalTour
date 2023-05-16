@@ -92,7 +92,7 @@ abstract public class Tournament implements Serializable {
     public ArrayList<Match> getMatches() {
         return matches;
     }
-
+    
     // Setters
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
