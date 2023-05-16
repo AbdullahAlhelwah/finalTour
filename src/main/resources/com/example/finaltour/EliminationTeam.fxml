@@ -4,6 +4,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.EliminationTeamController">
    <children>
@@ -12,7 +13,13 @@
           <TableColumn fx:id="tName" prefWidth="150.0" text="Team" />
         </columns>
       </TableView>
-      <Button layoutX="315.0" layoutY="402.0" mnemonicParsing="false" onAction="#toTeamDetails" prefHeight="26.0" prefWidth="98.0" text="Team Details" />
-      <Button layoutX="178.0" layoutY="402.0" mnemonicParsing="false" onAction="#toTournament" prefHeight="26.0" prefWidth="98.0" text="Go Back" />
+      <Button layoutX="315.0" layoutY="402.0" mnemonicParsing="false" onAction="#toTeamDetails" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0026be;" text="Team Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="178.0" layoutY="402.0" mnemonicParsing="false" onAction="#toTournament" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0026be;" text="Go Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

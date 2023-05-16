@@ -35,8 +35,8 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="confirmButton" layoutX="126.0" layoutY="149.0" mnemonicParsing="false" onAction="#confirm" text="Confirm" />
-      <Button fx:id="cancelButton" layoutX="126.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Cancel" onAction="#cancelButton" />
-      <Button fx:id="addMembersButton" layoutX="546.0" layoutY="101.0" mnemonicParsing="false" onAction="#addNewTextField" text="Add" />
+      <Button fx:id="confirmButton" layoutX="126.0" layoutY="149.0" mnemonicParsing="false" onAction="#confirm" style="-fx-background-color: #0026be;" text="Confirm" textFill="WHITE" />
+      <Button fx:id="cancelButton" layoutX="126.0" layoutY="188.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #0026be;" text="Cancel" textFill="WHITE" />
+      <Button fx:id="addMembersButton" layoutX="546.0" layoutY="101.0" mnemonicParsing="false" onAction="#addNewTextField" style="-fx-background-color: #0026be;" text="Add" textFill="WHITE" />
    </children>
 </AnchorPane>

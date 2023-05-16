@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -13,12 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.AdminController">
     <children>
-        <Button fx:id="addTournamentButton" layoutX="553.0" layoutY="436.0" mnemonicParsing="false" onAction="#addTournament" stylesheets="@style.css" text="Add Tournament" />
+        <Button fx:id="addTournamentButton" layoutX="530.0" layoutY="433.0" mnemonicParsing="false" onAction="#addTournament" style="-fx-background-color: #0026be;" stylesheets="@style.css" text="Add Tournament" textFill="WHITE" />
         <ListView fx:id="currentTournaments" layoutX="82.0" layoutY="137.0" prefHeight="266.0" prefWidth="152.0">
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -44,9 +38,9 @@
             </font>
         </Label>
         <Button fx:id="showDetailsBottun" layoutX="530.0" layoutY="474.0" mnemonicParsing="false" onAction="#switchToTournamentPage" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: darkblue;" text="Show Details" textFill="WHITE" visible="false" />
-        <Button layoutX="531.0" layoutY="513.0" mnemonicParsing="false" onAction="#toMatches" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: darkblue;" text="Browse Matches" textFill="WHITE" />
-        <Button layoutX="654.0" layoutY="137.0" mnemonicParsing="false" onAction="#toFilter" prefHeight="26.0" prefWidth="54.0" text="Filter" />
+        <Button layoutX="531.0" layoutY="513.0" mnemonicParsing="false" onAction="#toMatches" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #0026be;" text="Browse Matches" textFill="WHITE" />
+        <Button layoutX="654.0" layoutY="137.0" mnemonicParsing="false" onAction="#toFilter" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #0026be;" text="Filter" textFill="WHITE" />
         <Text fx:id="Msg" layoutX="302.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Admin" textAlignment="CENTER" />
-      <Button fx:id="logoutButton" layoutX="610.0" layoutY="22.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: darkblue;" text="Log Out" textFill="#eb0707" />
+      <Button fx:id="logoutButton" layoutX="610.0" layoutY="22.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #0026be;" text="Log Out" textFill="#eb0707" />
     </children>
 </AnchorPane>

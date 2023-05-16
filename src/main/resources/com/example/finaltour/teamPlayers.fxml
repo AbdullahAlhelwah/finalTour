@@ -15,8 +15,14 @@
           <TableColumn fx:id="id" prefWidth="150.0" text="Player ID" />
         </columns>
       </TableView>
-      <Button layoutX="317.0" layoutY="481.0" mnemonicParsing="false" onAction="#toTeamList" prefHeight="26.0" prefWidth="103.0" text="Go Back" />
-      <Button layoutX="440.0" layoutY="481.0" mnemonicParsing="false" onAction="#toPlayerProfile" prefHeight="26.0" prefWidth="103.0" text="Player Profile" />
+      <Button layoutX="317.0" layoutY="481.0" mnemonicParsing="false" onAction="#toTeamList" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: #0026be;" text="Go Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="440.0" layoutY="481.0" mnemonicParsing="false" onAction="#toPlayerProfile" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: #0026be;" text="Player Profile" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
       <Label fx:id="teamName" alignment="CENTER" layoutX="157.0" layoutY="46.0" prefHeight="18.0" prefWidth="302.0" text="Team Name" textFill="DARKBLUE">
          <font>
             <Font name="System Bold" size="30.0" />
