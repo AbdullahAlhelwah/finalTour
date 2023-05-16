@@ -98,13 +98,14 @@ public class TournamentPageContoller {
         else
             typeLabel.setText("Elimination");
 
-        if(!t.getOpen()) {
-            statusLabel.setText("Closed");
-            statusLabel.setTextFill(Color.RED);
-        } else {
-            statusLabel.setText("Open");
-            statusLabel.setTextFill(Color.GREEN);
-        }
+        // if(!t.getOpen()) {
+        //     statusLabel.setText("Closed");
+        //     statusLabel.setTextFill(Color.RED);
+        // } else {
+        //     statusLabel.setText("Open");
+        //     statusLabel.setTextFill(Color.GREEN);
+        // }
+        statusLabel.setText(t.getStatues());
 
         // get the teams participated in the tournament 
         String particpants = "";
