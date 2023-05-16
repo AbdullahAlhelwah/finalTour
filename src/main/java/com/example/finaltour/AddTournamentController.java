@@ -118,4 +118,17 @@ public class AddTournamentController {
         
         
     }
+
+    public void toAdminPage(ActionEvent actionEvent) {
+        //go back to the admin page
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
