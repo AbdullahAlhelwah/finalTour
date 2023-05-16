@@ -10,7 +10,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -43,6 +45,15 @@ public class matchesListController implements Initializable {
     private Parent root;
 
     @FXML
+    private VBox adminVbox;
+
+    @FXML
+    private TextField goals1;
+
+    @FXML
+    private TextField goals2;
+
+    @FXML
     void toTournament(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("TournamentPage.fxml"));
@@ -66,6 +77,19 @@ public class matchesListController implements Initializable {
         round.setCellValueFactory(new PropertyValueFactory<Match,Integer>("round"));
 
         table.setItems(FXCollections.observableArrayList(matches));
+
+    }
+    @FXML
+    void record(ActionEvent event) {
+        int g1 = Integer.parseInt(goals1.getText());
+        int g2 = Integer.parseInt(goals2.getText());
+        Match m = table.getSelectionModel().getSelectedItem();
+        try {
+            m.recordScore(g1,g2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 }

@@ -27,6 +27,7 @@ public class Match implements Serializable{
         team2Name = b.getName();
         tourName = t.getName();
         date = d;
+        result = "TBA";
     }
     //another constructors with 1/without Teams
     public Match(Tournament t, Date d, Team a){
@@ -34,12 +35,17 @@ public class Match implements Serializable{
         date = d;
         team1 = a;
         team1Name = team1.getName();
+        team2Name = "TBA";
         tourName = t.getName();
+        result = "TBA";
     }
     public Match(Tournament t, Date d){
         tournament  = t;
         date = d;
         tourName = t.getName();
+        team1Name = "TBA";
+        team2Name = "TBA";
+        result = "TBA";
     }
 
 

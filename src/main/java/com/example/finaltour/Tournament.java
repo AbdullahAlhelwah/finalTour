@@ -21,6 +21,7 @@ abstract public class Tournament implements Serializable {
     private Date endDate;
     private boolean hasFinished;
     private Team winner;
+    private String winnerName;
     protected ArrayList<Match> matches;
 
     // constructor
@@ -34,6 +35,7 @@ abstract public class Tournament implements Serializable {
         this.hasFinished = false;
         matches = new ArrayList<>();
         open = true;
+        this.winnerName = "TBA";
     }
 
     // another constructor without endDate; automatically set by the system
@@ -87,6 +89,10 @@ abstract public class Tournament implements Serializable {
 
     public boolean getOpen() {
         return open;
+    }
+
+    public String getWinnerName() {
+        return winnerName;
     }
 
     public ArrayList<Match> getMatches() {
