@@ -185,6 +185,15 @@ public class TournamentPageContoller implements Initializable {
 
     @FXML
     void toMatches(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("matchesList.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
     @FXML
