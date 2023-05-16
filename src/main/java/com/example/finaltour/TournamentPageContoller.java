@@ -194,7 +194,6 @@ public class TournamentPageContoller implements Initializable {
         }catch (IOException e) {
             e.printStackTrace();
         }
-
     }
     @FXML
     void closeRegisteration(ActionEvent event) {
@@ -204,8 +203,9 @@ public class TournamentPageContoller implements Initializable {
     }
 
     @FXML
-    void generateMatches(ActionEvent event) {
-        // selectedTournament.generateMatches(0);
+    void generateMatches(ActionEvent event) throws Exception {
+        // selectedTournament.generateMatches(1);
+
     }
     
 }
