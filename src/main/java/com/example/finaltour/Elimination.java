@@ -57,7 +57,7 @@ public class Elimination extends Tournament implements java.io.Serializable{
         int stop = (int) Math.pow(2, height) - 1;
         for (int i = 0; i < stop; i++) {
 
-            date = new Date(getStartDate().getTime() + restDays * (height - currentHeight) * 24 * 60 * 60 * 1000);
+            date = new Date(getStartDate().getTime() + (long) restDays * (height - currentHeight) * 24 * 60 * 60 * 1000);
             matches.add(new Match(this, date));
 
             if (i == Math.pow(2, currentHeight + 1) - 2) {
@@ -67,7 +67,7 @@ public class Elimination extends Tournament implements java.io.Serializable{
 
         //set the end date if it is not set
         if (getEndDate() == null) {
-            setEndDate(new Date(getStartDate().getTime() + restDays * (height + 1) * 24 * 60 * 60 * 1000));
+            setEndDate(new Date(getStartDate().getTime() + (long) restDays * (height + 1) * 24 * 60 * 60 * 1000));
         }
         //check if the final date is before or on the same date as the end date or raise an error
         if (matches.get(0).getDate().compareTo(getEndDate()) > 0) {

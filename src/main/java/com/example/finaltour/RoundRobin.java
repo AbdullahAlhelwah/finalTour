@@ -33,10 +33,10 @@ public class RoundRobin extends Tournament implements java.io.Serializable{
         int nRounds = teamsCopy.size() -1;
         for(int round = 0; round < nRounds; round++){
             matches.add(new Match(this,teamsCopy.get(0),opponent.get(0),
-                    new Date(getStartDate().getTime()+restDays*round*24 * 60 * 60 * 1000)));
+                    new Date(getStartDate().getTime()+ (long) restDays *round*24 * 60 * 60 * 1000)));
             for(int i= 1; i< teamsCopy.size()/2; i++){
                 matches.add(new Match(this,opponent.get(opponent.size()-i),opponent.get(i),
-                        new Date(getStartDate().getTime()+restDays*round*24 * 60 * 60 * 1000)));
+                        new Date(getStartDate().getTime()+ (long) restDays *round*24 * 60 * 60 * 1000)));
             }
             Collections.rotate(opponent,1);
         }

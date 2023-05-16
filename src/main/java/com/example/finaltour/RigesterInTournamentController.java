@@ -70,7 +70,7 @@ public class RigesterInTournamentController {
     public void cotroller(Tournament t, Stage stage) {
         setSelectedTournament(t);
         setStage(stage);
-        if (t.getIsIndividual() == true) {
+        if (t.getIsIndividual()) {
             addMembersButton.setVisible(false);
             membersLabel.setText("Member");
             participantNameTextField.setVisible(false);
@@ -94,7 +94,7 @@ public class RigesterInTournamentController {
 
 
     public void confirm(ActionEvent event) {
-        if (selectedTournament.getIsIndividual() == true) {
+        if (selectedTournament.getIsIndividual()) {
             Student student = new Student(nameTextField.getText(), idTextField.getText());
             try {
                 registeredTeam = new Team(selectedTournament, "m1");

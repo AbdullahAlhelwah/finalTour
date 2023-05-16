@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.AdminController">
+    <children>
+        <Button fx:id="addTournamentButton" layoutX="553.0" layoutY="436.0" mnemonicParsing="false" onAction="#addTournament" stylesheets="@style.css" text="Add Tournament"/>
+        <ListView fx:id="currentTournaments" layoutX="82.0" layoutY="137.0" prefHeight="266.0" prefWidth="152.0">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </ListView>
+        <Label layoutX="101.0" layoutY="108.0" text="Current Tournaments" />
+        <ListView fx:id="prevTournaments" layoutX="281.0" layoutY="137.0" prefHeight="266.0" prefWidth="152.0" />
+        <ListView fx:id="upcomingTournaments" layoutX="478.0" layoutY="137.0" prefHeight="266.0" prefWidth="152.0" />
+        <Label layoutX="299.0" layoutY="108.0" text="Previous Tournaments" />
+        <Label layoutX="485.0" layoutY="108.0" text="UpcomingTournaments" />
+        <Label layoutX="82.0" layoutY="426.0" text="Tournament Details">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+        <Line endX="-100.0" endY="159.0" layoutX="357.0" layoutY="190.0" startX="-100.0" stroke="#a39c9c70" />
+        <Line endX="-100.0" endY="159.0" layoutX="556.0" layoutY="190.0" startX="-100.0" stroke="#a39c9c70" />
+        <Line endX="-100.0" endY="159.0" layoutX="370.0" layoutY="-74.0" startX="66.0" startY="159.0" stroke="#a39c9c70" />
+        <Label layoutX="301.0" layoutY="43.0" text="Admin Page">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <TextFlow fx:id="textFlow" layoutX="82.0" layoutY="446.0" prefHeight="80.0" prefWidth="383.0" />
+    </children>
+</AnchorPane>

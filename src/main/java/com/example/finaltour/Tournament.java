@@ -10,12 +10,12 @@ abstract public class Tournament implements Serializable {
 
 
     // attributes
-    private String name;
+    private final String name;
     private boolean open;
-    private boolean isIndividual;
-    private String sport;
-    private ArrayList<Team> teams;
-    private Date startDate;
+    private final boolean isIndividual;
+    private final String sport;
+    private final ArrayList<Team> teams;
+    private final Date startDate;
     private Date endDate;
     private boolean hasFinished;
     private Team winner;

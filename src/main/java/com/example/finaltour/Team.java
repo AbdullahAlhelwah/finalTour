@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Team implements Comparable<Team>,Serializable{
-    private String name;
-    private ArrayList<Student> members = new ArrayList<>();
-    private Tournament tournament;
+    private final String name;
+    private final ArrayList<Student> members = new ArrayList<>();
+    private final Tournament tournament;
     private int goalsScored;
     private int goalsReceived;
     private int goalDifference;
@@ -128,8 +128,8 @@ public class Team implements Comparable<Team>,Serializable{
     public int compareTo(Team o){
         if (points - o.points != 0) return points - o.points;
         try{
-            if (((RoundRobin)tournament).getMatch(this, o).getWinner()!= null){
-                if(((RoundRobin)tournament).getMatch(this, o).getWinner().equals(this)) return 1;
+            if (tournament.getMatch(this, o).getWinner()!= null){
+                if(tournament.getMatch(this, o).getWinner().equals(this)) return 1;
                 else return -1;
             }
         }catch(Exception e){

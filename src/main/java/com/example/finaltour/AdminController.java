@@ -23,7 +23,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
-public class firstPageController implements Initializable {
+public class AdminController implements Initializable {
 
     @FXML
     ListView<String> currentTournaments = new ListView<>();
@@ -38,8 +38,6 @@ public class firstPageController implements Initializable {
     TextFlow textFlow;
 
     @FXML
-    private Button loginButton;
-
 
     // this array will be used to populate the ListView.
 
@@ -65,19 +63,6 @@ public class firstPageController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
-    public void switchToLogInPage(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -118,6 +103,7 @@ public class firstPageController implements Initializable {
 
 
 
+    @FXML
     public void addTournament(ActionEvent actionEvent) {
         try {
             root = FXMLLoader.load(getClass().getResource("addTournament.fxml"));
@@ -187,7 +173,7 @@ public class firstPageController implements Initializable {
             alert.showAndWait();
             //go back to the first page
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 stage.setScene(scene);
@@ -206,7 +192,7 @@ public class firstPageController implements Initializable {
                 tournament = new RoundRobin(name,false, sport, startDate);
 
             // add the tournament to the list of tournaments, make it round robin type
-            Main.tournaments.add((RoundRobin)tournament);
+            Main.tournaments.add(tournament);
 
             // show a success message
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -215,9 +201,9 @@ public class firstPageController implements Initializable {
             alert.setContentText("The tournament has been added successfully.");
             alert.showAndWait();
 
-            // go back to the first page
+            // go back to the admin page
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 stage.setScene(scene);

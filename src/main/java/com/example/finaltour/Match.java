@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Match implements Serializable{
-    private Tournament tournament;
+    private final Tournament tournament;
     private Team team1;
     private Team team2;
     private int goals1;

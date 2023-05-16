@@ -53,11 +53,9 @@ public class Main {
         // Read each tournament from the file and store it in the array
         for (int i = 0; i < numTournaments; i++) {
             Tournament tournament = (Tournament) ois.readObject();
-            if (tournament instanceof Elimination) {
-                Elimination elimination = (Elimination) tournament;
+            if (tournament instanceof Elimination elimination) {
                 tournaments.add(elimination);
-            } else if (tournament instanceof RoundRobin) {
-                RoundRobin roundRobin = (RoundRobin) tournament;
+            } else if (tournament instanceof RoundRobin roundRobin) {
                 tournaments.add(roundRobin) ;
             } else {
                 tournaments.add(tournament);
