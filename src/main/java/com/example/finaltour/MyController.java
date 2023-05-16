@@ -11,7 +11,6 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +35,23 @@ public class MyController implements Initializable {
 
     @FXML
     private Label welcomeMsg;
+
+    @FXML
+    private Button profileButton;
+
+    public void switchToStudentProfilePage(ActionEvent event) {
+        try {
+            logInroot = FXMLLoader.load(getClass().getResource("StudentProfile.fxml"));
+            logInStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            logInscene = new Scene(logInroot);
+            logInStage.setScene(logInscene);
+            logInStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public void switchToLogInPage(ActionEvent event) {
         try {
