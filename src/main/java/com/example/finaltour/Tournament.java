@@ -127,14 +127,34 @@ abstract public class Tournament implements Serializable {
     public String getDetails() {
         String details;
         if(this.getClass().getName() == "com.example.tournamnetproj.RoundRobin") {
-         details = "Type: " +"RoundRobin"+ "\n" +
-                "Name: " + name + "\n" +
-                "Sport: " + sport + "\n" +
-                "Start Date: " + startDate + "\n" +
-                "End Date: " + endDate + "\n" +
-                "Number of Teams: " + teams.size() + "\n" +
-                "Winner: " + winner + "\n";}
+            if (endDate == null)
+                details = "Type: " + "elimination" + "\n" +
+                        "Name: " + name + "\n" +
+                        "Sport: " + sport + "\n" +
+                        "Start Date: " + startDate + "\n" +
+                        "End Date: " + "to be determined" + "\n" +
+                        "Number of Teams: " + teams.size() + "\n" +
+                        "Winner: " + winner + "\n";
+            else
+                details = "Type: " + "elimination" + "\n" +
+                        "Name: " + name + "\n" +
+                        "Sport: " + sport + "\n" +
+                        "Start Date: " + startDate + "\n" +
+                        "End Date: " + endDate + "\n" +
+                        "Number of Teams: " + teams.size() + "\n" +
+                        "Winner: " + winner + "\n";
+        }
         else{
+            //if date null, it will be shown as "to be determined"
+            if(endDate == null)
+                details = "Type: " +"elimination"+ "\n" +
+                        "Name: " + name + "\n" +
+                        "Sport: " + sport + "\n" +
+                        "Start Date: " + startDate + "\n" +
+                        "End Date: " + "to be determined" + "\n" +
+                        "Number of Teams: " + teams.size() + "\n" +
+                        "Winner: " + winner + "\n";
+            else
             details = "Type: " +"elimination"+ "\n" +
                     "Name: " + name + "\n" +
                     "Sport: " + sport + "\n" +

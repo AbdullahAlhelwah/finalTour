@@ -165,7 +165,7 @@ public class MyController implements Initializable {
                 //search for the tournament and display its details
                 for(int i = 0; i < currentTournamentT.size(); i++) {
                     if(currentTournamentT.get(i).getName().equals(selectedTournamentName)) {
-                        Text text = new Text("\nAdditionally, you can use the Region class, which is the base class for all layout containers, to set the preferred size of the node. When the size of the window changes, the layout container will adjust the size of the node according to its preferred size.");
+                        Text text = new Text(currentTournamentT.get(i).getDetails());
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
                         selectedObjectTournament = currentTournamentT.get(i);
@@ -190,7 +190,7 @@ public class MyController implements Initializable {
 
                 for(int i = 0; i < prevTournamentT.size(); i++) {
                     if(prevTournamentT.get(i).getName().equals(selectedTournamentName)) { // get the object givin the name of the tournament
-                        Text text = new Text("Additionally, you can use the Region class, which is the base class for all layout containers, to set the preferred size of the node. When the size of the window changes, the layout container will adjust the size of the node according to its preferred size.");
+                        Text text = new Text(currentTournamentT.get(i).getDetails());
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
                         selectedObjectTournament = prevTournamentT.get(i); // this to get the tournament object and send to tournament Page
@@ -208,7 +208,7 @@ public class MyController implements Initializable {
 
                 for(int i = 0; i < nexTournamentT.size(); i++) {
                     if(nexTournamentT.get(i).getName().equals(selectedTournamentName)) {
-                        Text text = new Text("Additionally, you can use the Region class, which is the base class for all layout containers, to set the preferred size of the node. When the size of the window changes, the layout container will adjust the size of the node according to its preferred size.");
+                        Text text = new Text(currentTournamentT.get(i).getDetails());
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
                         selectedObjectTournament = nexTournamentT.get(i); // this to get the tournament object and send to tournament Page
@@ -256,5 +256,5 @@ public class MyController implements Initializable {
 
     }
 
-  
+
 }

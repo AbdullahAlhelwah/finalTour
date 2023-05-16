@@ -19,9 +19,9 @@
         </ListView>
         <Label layoutX="101.0" layoutY="108.0" text="Current Tournaments" />
         <ListView fx:id="prevTournaments" layoutX="281.0" layoutY="137.0" prefHeight="266.0" prefWidth="152.0" />
-        <ListView fx:id="upcomingTournaments" layoutX="478.0" layoutY="137.0" prefHeight="266.0" prefWidth="152.0" />
+        <ListView fx:id="upcommingTournaments" layoutX="478.0" layoutY="137.0" prefHeight="266.0" prefWidth="152.0" />
         <Label layoutX="299.0" layoutY="108.0" text="Previous Tournaments" />
-        <Label layoutX="485.0" layoutY="108.0" text="UpcomingTournaments" />
+        <Label layoutX="485.0" layoutY="108.0" text="UpcommingTournaments" />
         <Label layoutX="82.0" layoutY="426.0" text="Tournament Details">
             <font>
                 <Font name="System Bold" size="14.0" />
@@ -30,11 +30,14 @@
         <Line endX="-100.0" endY="159.0" layoutX="357.0" layoutY="190.0" startX="-100.0" stroke="#a39c9c70" />
         <Line endX="-100.0" endY="159.0" layoutX="556.0" layoutY="190.0" startX="-100.0" stroke="#a39c9c70" />
         <Line endX="-100.0" endY="159.0" layoutX="370.0" layoutY="-74.0" startX="66.0" startY="159.0" stroke="#a39c9c70" />
-        <Label layoutX="301.0" layoutY="43.0" text="Admin Page">
+        <TextFlow fx:id="textFlow" layoutX="82.0" layoutY="446.0" prefHeight="80.0" prefWidth="383.0" />
+        <Label layoutX="228.0" layoutY="45.0" text="Tournaments Schadule">
             <font>
-                <Font name="System Bold" size="18.0" />
+                <Font name="System Bold" size="24.0" />
             </font>
         </Label>
-        <TextFlow fx:id="textFlow" layoutX="82.0" layoutY="446.0" prefHeight="80.0" prefWidth="383.0" />
+        <Button fx:id="showDetailsBottun" layoutX="530.0" layoutY="474.0" mnemonicParsing="false" onAction="#switchToTournamentPage" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: darkblue;" text="Show Details" textFill="WHITE" visible="false" />
+        <Button layoutX="531.0" layoutY="513.0" mnemonicParsing="false" onAction="#toMatches" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: darkblue;" text="Browse Matches" textFill="WHITE" />
+        <Button layoutX="654.0" layoutY="137.0" mnemonicParsing="false" onAction="#toFilter" prefHeight="26.0" prefWidth="54.0" text="Filter" />
     </children>
 </AnchorPane>
