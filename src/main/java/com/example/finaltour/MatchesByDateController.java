@@ -34,8 +34,7 @@ public class MatchesByDateController implements Initializable {
     @FXML
     private DatePicker datePicker;
 
-    @FXML
-    private TableColumn<Match, Date> matchDate;
+
 
     @FXML
     private TableView<Match> table;
@@ -68,7 +67,7 @@ public class MatchesByDateController implements Initializable {
             }
 
 
-        matchDate.setCellValueFactory(new PropertyValueFactory<Match,Date>("date"));
+
         team1.setCellValueFactory(new PropertyValueFactory<Match,String>("team1Name"));
         team2.setCellValueFactory(new PropertyValueFactory<Match,String>("team2Name"));
         TorName.setCellValueFactory(new PropertyValueFactory<Match,String>("tourName"));

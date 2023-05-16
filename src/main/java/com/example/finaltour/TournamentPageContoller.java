@@ -187,5 +187,16 @@ public class TournamentPageContoller implements Initializable {
     void toMatches(ActionEvent event) {
 
     }
+    @FXML
+    void closeRegisteration(ActionEvent event) {
+        selectedTournament.setOpen(false);
+
+
+    }
+
+    @FXML
+    void generateMatches(ActionEvent event) {
+
+    }
     
 }
