@@ -58,12 +58,14 @@ public class RoundRobin extends Tournament implements java.io.Serializable{
     }
 
     public void updateTable(){
-        for (Match mm: matches){
-            if(!mm.gethasFinshed()) return;
-        setHasFinished(true);
         Collections.sort(getTeams());
-        if(getHasFinished()) setWinner(getTeams().get(0));
+        Collections.reverse(getTeams());
+
+        for (Match mm: matches){
+            if(!mm.gethasFinshed()) break;
         }    
+        setHasFinished(true);
+        setWinner(getTeams().get(0));
     }
     public void viewStanding() {
     }

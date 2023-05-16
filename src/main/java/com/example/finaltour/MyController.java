@@ -40,6 +40,7 @@ public class MyController implements Initializable {
     private Button profileButton;
 
     public void switchToStudentProfilePage(ActionEvent event) {
+        // teamPlayerController.playerNoob = 
         try {
             logInroot = FXMLLoader.load(getClass().getResource("StudentProfile.fxml"));
             logInStage = (Stage)((Node)event.getSource()).getScene().getWindow();
