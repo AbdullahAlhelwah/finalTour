@@ -21,6 +21,7 @@ public class Team implements Comparable<Team>,Serializable{
         if(!t.getOpen()) throw new Exception("tournament closed");
         tournament = t;
         name = s.getName();
+        members.add(s);
 
         
     }
