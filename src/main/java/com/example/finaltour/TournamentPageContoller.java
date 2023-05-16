@@ -1,14 +1,20 @@
 package com.example.finaltour;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -17,7 +23,7 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 
 
-public class TournamentPageContoller {
+public class TournamentPageContoller implements Initializable {
 
     @FXML
     private Label typeLabel;
@@ -48,6 +54,18 @@ public class TournamentPageContoller {
     private Scene scene;
     private Parent root;
 
+
+    @FXML
+    private Button generateButton;
+    @FXML private Button closeRegButton;
+    private BooleanProperty generate = new SimpleBooleanProperty(Main.isAdmin && !selectedTournament.getOpen());
+    private BooleanProperty close = new SimpleBooleanProperty(Main.isAdmin && selectedTournament.getOpen());
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //set the visibility of login button and logout button
+        generateButton.visibleProperty().bind(generate);
+        closeRegButton.visibleProperty().bind(close);
+    }
 
     public void setSelectedTournament(Tournament t) {
         selectedTournament = t;
@@ -114,7 +132,7 @@ public class TournamentPageContoller {
             particpants += team.getName() + ", ";
 
         if (particpants.equals(""))
-            particpants += "No particpants";
+            particpants += "No participants";
 
         Text text = new Text(particpants);
         participantTextFlow.getChildren().add(text);  
