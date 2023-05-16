@@ -7,6 +7,8 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
+
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -25,84 +27,190 @@ import javafx.stage.Stage;
 
 public class AdminController implements Initializable {
 
-    @FXML
-    ListView<String> currentTournaments = new ListView<>();
-
-    @FXML
-    ListView<String> prevTournaments = new ListView<>();
-
-    @FXML
-    ListView<String> upcomingTournaments = new ListView<>();
-
-    @FXML
-    TextFlow textFlow;
-
-    @FXML
-
-    // this array will be used to populate the ListView.
-
-    String[] currentTournament = new String[Main.tournaments.size()];
-
-    {
-        for(int i = 0; i < Main.tournaments.size(); i++) {
-            currentTournament[i] = Main.tournaments.get(i).getName();
-        }
-    }
-
-    // this array is to display the details of a tournament.
-    Tournament[] currentTournamentT = new Tournament[Main.tournaments.size()];
-    {
-        for(int i = 0; i < Main.tournaments.size(); i++) {
-            currentTournamentT[i] = Main.tournaments.get(i);
-        }
-    }
-
-    String selectedTournament;
 
     // to set up the button action
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    private Stage logInStage;
+    private Scene logInscene;
+    private Parent logInroot;
+
+
+    @FXML
+    private Button showDetailsBottun;
+
+    public Tournament selectedObjectTournament; // we save the object for tournament page.
+
+    // this method to set the action event for the button show Details
+    public void switchToTournamentPage(ActionEvent event) {
+        try {
+            // Create a new stage for the second window
+            Stage secondStage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TournamentPage.fxml"));
+            Parent root = loader.load();
+
+            TournamentPageContoller tournamentPageContoller = loader.getController();
+            tournamentPageContoller.populatePage(selectedObjectTournament, secondStage); // to send the object to the tournament page
+
+            // Set the scene for the second window
+            Scene secondScene = new Scene(root);
+
+            // Set the stage's scene to the second scene
+            secondStage.setScene(secondScene);
+
+            // Show the second window
+            secondStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private ListView<String> currentTournaments;
+
+    @FXML
+    private ListView<String> prevTournaments;
+
+    @FXML
+    private ListView<String> upcommingTournaments;
+
+    @FXML
+    private TextFlow textFlow;
+
+    private String selectedTournamentName;
+
+
+    ArrayList<String> currentTourNames = new ArrayList<>();
+    ArrayList<String> prevTournamentsNames = new ArrayList<>();
+    ArrayList<String> nextTournamentNames = new ArrayList<>();
+    ArrayList<Tournament> currentTournamentT = new ArrayList<>();
+    ArrayList<Tournament> prevTournamentT =  new ArrayList<>();
+    ArrayList<Tournament> nexTournamentT = new ArrayList<>();
+
+    ArrayList<Tournament> allTournaments = Main.tournaments;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        for(Tournament tt: Main.tournaments){
+            if(tt.getStatues().equals("Archived")){
+                prevTournamentT.add(tt);
+                prevTournamentsNames.add(tt.getName());
+            }else if(tt.getStatues().equals("started")){
+                currentTourNames.add(tt.getName());
+                currentTournamentT.add(tt);
+            }else{
+                nexTournamentT.add(tt);
+                nextTournamentNames.add(tt.getName());
+            }
+        }
+
+        //showDetailsBottun.setVisible(false); // it is not visibale untill a tournament is selected.
+
         // populating the Lists
-        currentTournaments.getItems().addAll(currentTournament);
-        prevTournaments.getItems().addAll(currentTournament);
-        upcomingTournaments.getItems().addAll(currentTournament);
+        currentTournaments.getItems().addAll(currentTourNames);
+        prevTournaments.getItems().addAll(prevTournamentsNames);
+        upcommingTournaments.getItems().addAll(nextTournamentNames);
 
-        // this code listen for any change in the selected cell and change the label below
-        displayInfo(currentTournaments);
-
-
-        displayInfo(prevTournaments);
-
-        displayInfo(upcomingTournaments);
-
-    }
-
-    private void displayInfo(ListView<String> currentTournaments) {
+        // this code listen for any change in the selected cell and change the lable below
         currentTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()  {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                selectedTournament = currentTournaments.getSelectionModel().getSelectedItem(); // get the name of the selected tournament
+                selectedTournamentName = currentTournaments.getSelectionModel().getSelectedItem(); // get the name of the selected tournament
 
                 //search for the tournament and display its details
-                for(int i = 0; i < currentTournamentT.length; i++) {
-                    if(currentTournamentT[i].getName().equals(selectedTournament)) {
-                        String details = currentTournamentT[i].getDetails();
-                        Text text = new Text(details);
+                for(int i = 0; i < currentTournamentT.size(); i++) {
+                    if(currentTournamentT.get(i).getName().equals(selectedTournamentName)) {
+                        Text text = new Text(currentTournamentT.get(i).getDetails());
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
+                        selectedObjectTournament = currentTournamentT.get(i);
+                        showDetailsBottun.setVisible(true);
+
                     }
                 }
             }
         });
+
+        // "The name of the tournament is: " + currentTournamentT[i].getName() +
+        //                 "\nIs Individual? " + currentTournamentT[i].getIsIndividual() +
+        //                 "          The Sport: " + currentTournamentT[i].getSport() +
+        //                 "\nHas Finished? " + currentTournamentT[i].getHasFinished()
+
+
+        prevTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()  {
+
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                selectedTournamentName = prevTournaments.getSelectionModel().getSelectedItem();
+
+                for(int i = 0; i < prevTournamentT.size(); i++) {
+                    if(prevTournamentT.get(i).getName().equals(selectedTournamentName)) { // get the object givin the name of the tournament
+                        Text text = new Text(prevTournamentT.get(i).getDetails());
+                        textFlow.getChildren().clear();
+                        textFlow.getChildren().add(text);
+                        selectedObjectTournament = prevTournamentT.get(i); // this to get the tournament object and send to tournament Page
+                        showDetailsBottun.setVisible(true);
+                    }
+                }
+            }
+        });
+
+        upcommingTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()  {
+
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                selectedTournamentName = upcommingTournaments.getSelectionModel().getSelectedItem();
+
+                for(int i = 0; i < nexTournamentT.size(); i++) {
+                    if(nexTournamentT.get(i).getName().equals(selectedTournamentName)) {
+                        Text text = new Text(nexTournamentT.get(i).getDetails());
+                        textFlow.getChildren().clear();
+                        textFlow.getChildren().add(text);
+                        selectedObjectTournament = nexTournamentT.get(i); // this to get the tournament object and send to tournament Page
+                        showDetailsBottun.setVisible(true);
+                    }
+                }
+            }
+        });
+
+    }
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    @FXML
+    void toMatches(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("matchesByDate.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @FXML
+    void toFilter(ActionEvent event) {
+        Stage secondStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("filterPage.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Scene secondScene = new Scene(root);
+
+        // Set the stage's scene to the second scene
+        secondStage.setScene(secondScene);
+
+        // Show the second window
+        secondStage.show();
+
     }
 
-
-
+    //add tournament
     @FXML
     public void addTournament(ActionEvent actionEvent) {
         try {
@@ -115,107 +223,4 @@ public class AdminController implements Initializable {
             e.printStackTrace();
         }
     }
-
-    //a method to add tournament
-    @FXML
-    private javafx.scene.control.TextField nameField;
-    @FXML
-    private javafx.scene.control.ComboBox typeBox;
-    @FXML
-    private javafx.scene.control.ComboBox isIndividualBox;
-    @FXML
-    private javafx.scene.control.ComboBox sportBox;
-    @FXML
-    private javafx.scene.control.DatePicker startDatePicker;
-    @FXML
-    private javafx.scene.control.DatePicker endDatePicker;
-
-    public void add(ActionEvent actionEvent) {
-        //get the type of the tournament
-        String type = (String) typeBox.getValue();
-        //get the name of the tournament
-        String name = nameField.getText();
-        //get the sport of the tournament
-        String sport = (String) sportBox.getValue();
-        //get the start date of the tournament
-        LocalDate start = startDatePicker.getValue();
-        //get the end date of the tournament
-        LocalDate end = endDatePicker.getValue();
-        //get the type of the tournament
-        String isIndividual = (String) isIndividualBox.getValue();
-        //check if there is any empty field (except for the end date)
-        if (type == null || name.isEmpty() || sport == null || start == null || isIndividual == null || end == null) {
-            //show an error message
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Missing information");
-            alert.setContentText("Please fill all required fields.");
-            alert.showAndWait();
-            return;
-        }
-        //add the tournament
-        if(type.equals("Elimination")){
-            //create the tournament
-            Date startDate = Date.from(start.atStartOfDay(ZoneId.systemDefault()).toInstant());
-            Date endDate = Date.from(end.atStartOfDay(ZoneId.systemDefault()).toInstant());
-            Tournament tournament;
-            if(isIndividual.equals("Individual"))
-                tournament = new Elimination(name, true, sport, startDate, endDate);
-            else
-                tournament = new Elimination(name, false, sport, startDate, endDate);
-            //add the tournament to the list of tournaments
-            Main.tournaments.add(tournament);
-            //show a success message
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText("Tournament added successfully");
-            alert.setContentText("The tournament has been added successfully.");
-            alert.showAndWait();
-            //go back to the first page
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
-                Scene scene = new Scene(root);
-                Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (type.equals("Round Robin")) {
-            // create the tournament
-            Date startDate = Date.from(start.atStartOfDay(ZoneId.systemDefault()).toInstant());
-            Date endDate = Date.from(end.atStartOfDay(ZoneId.systemDefault()).toInstant());
-            RoundRobin tournament;
-            if (isIndividual.equals("Individual"))
-                tournament = new RoundRobin(name, true, sport, startDate);
-            else
-                tournament = new RoundRobin(name,false, sport, startDate);
-
-            // add the tournament to the list of tournaments, make it round robin type
-            Main.tournaments.add(tournament);
-
-            // show a success message
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText("Tournament added successfully");
-            alert.setContentText("The tournament has been added successfully.");
-            alert.showAndWait();
-
-            // go back to the admin page
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
-                Scene scene = new Scene(root);
-                Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-
-
-
 }
