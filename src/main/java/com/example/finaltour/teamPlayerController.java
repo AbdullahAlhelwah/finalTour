@@ -38,11 +38,20 @@ public class teamPlayerController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
+    public static Student playerNoob;
 
     @FXML
     void toPlayerProfile(ActionEvent event) {
-
+        playerNoob = table.getSelectionModel().getSelectedItem();
+        try {
+            root = FXMLLoader.load(getClass().getResource("StudentProfile.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

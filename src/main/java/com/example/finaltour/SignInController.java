@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SignInController{
-    private String name;
+    public String name ;
     private boolean isAdmin;
     private String email;
 
@@ -79,6 +79,7 @@ public class SignInController{
                 isAdmin = false;
                 name = userInfo[3];
                 email = userInfo[userInfo.length - 2];
+                
             }
             //show welcome massage
             label.setText("Welcome " + name);
