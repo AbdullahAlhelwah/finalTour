@@ -2,6 +2,8 @@ package com.example.finaltour;
 
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -90,7 +92,7 @@ abstract public class Tournament implements Serializable {
     public ArrayList<Match> getMatches() {
         return matches;
     }
-
+    
     // Setters
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
@@ -130,10 +132,10 @@ abstract public class Tournament implements Serializable {
 
     public String getStatues() {
 
-        Date todayDate = new Date();
-        if (hasFinished) return "Archived";
-        if (startDate.compareTo(todayDate) >= 0) return "started";
+        LocalDate todayDate = LocalDate.now();
 
+        if (hasFinished) return "Archived";
+        if (startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate().compareTo(todayDate) <= 0) return "started";
         if (open) return "Open";
         return "close";
 

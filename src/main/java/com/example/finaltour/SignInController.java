@@ -139,20 +139,12 @@ public class SignInController{
         Scene scene;
         Parent root;
 
-        try {
+        try{
             root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-            //change the visibility of login button if the user is logged in
-            if(Main.username != "Guest"){
-                Button loginButton = (Button) scene.lookup("#myButton");
-                loginButton.setVisible(false);
-                //change the visibility of logout button
-                Button logoutButton = (Button) scene.lookup("#logoutButton");
-                logoutButton.setVisible(true);
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }

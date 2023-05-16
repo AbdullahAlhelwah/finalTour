@@ -76,7 +76,7 @@ public class EliminationPageController implements Initializable {
 
     }
 
-    Elimination e = (Elimination) TournamentPageContoller.selectedTournament;
+    Tournament e =   TournamentPageContoller.selectedTournament;
     ArrayList<Match> matches = e.getMatches();
 
 
