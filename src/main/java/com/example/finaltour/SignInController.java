@@ -145,13 +145,14 @@ public class SignInController{
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-            //change the visibility of login button
-            Button loginButton = (Button) scene.lookup("#loginButton");
-            loginButton.setVisible(false);
-            //change the visibility of logout button
-            Button logoutButton = (Button) scene.lookup("#logoutButton");
-            logoutButton.setVisible(true);
-
+            //change the visibility of login button if the user is logged in
+            if(Main.username != null){
+                Button loginButton = (Button) scene.lookup("#loginButton");
+                loginButton.setVisible(false);
+                //change the visibility of logout button
+                Button logoutButton = (Button) scene.lookup("#logoutButton");
+                logoutButton.setVisible(true);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
