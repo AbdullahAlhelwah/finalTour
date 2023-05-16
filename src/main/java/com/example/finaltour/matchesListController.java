@@ -96,7 +96,7 @@ public class matchesListController implements Initializable {
             int g2 = Integer.parseInt(goals2.getText());
 
             m.recordScore(g1,g2);
-
+            table.refresh();
         } catch (NumberFormatException n){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
