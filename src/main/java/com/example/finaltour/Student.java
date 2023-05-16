@@ -26,6 +26,10 @@ public class Student implements Serializable{
         return false;
     }
 
+    public ArrayList<Team>  getAllTeams() {
+        return allTeams;
+    }
+
     public void addTeam(Team t){
         this.allTeams.add(t);
     }
