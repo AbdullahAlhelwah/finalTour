@@ -87,17 +87,35 @@ public class TournamentPageContoller implements Initializable {
 
     public void switchToRegisterPage(ActionEvent event) {
         try {
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            if (Main.username.equals("Guest")){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Unable to Register");
+                alert.setContentText("You have to login to register");
+                alert.showAndWait();
+            }
+            else if (selectedTournament.getOpen()) {
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RigesterInTournamentPage.fxml"));
-            Parent root = loader.load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("RigesterInTournamentPage.fxml"));
+                Parent root = loader.load();
 
-            RigesterInTournamentController rigesterInTournamentController = loader.getController();
-            rigesterInTournamentController.cotroller(selectedTournament, stage);
+                RigesterInTournamentController rigesterInTournamentController = loader.getController();
+                rigesterInTournamentController.cotroller(selectedTournament, stage);
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Unable to Register");
+                alert.setContentText("Tournament is not open to register");
+                alert.showAndWait();
+
+
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
