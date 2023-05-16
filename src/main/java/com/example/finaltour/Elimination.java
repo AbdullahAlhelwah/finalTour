@@ -58,7 +58,7 @@ public class Elimination extends Tournament implements java.io.Serializable{
         for (int i = 0; i < stop; i++) {
 
             date = new Date(getStartDate().getTime() + (long) restDays * (height - currentHeight) * 24 * 60 * 60 * 1000);
-            matches.add(new Match(this, date));
+            matches.add(new Match(this, date,height-currentHeight+1));
 
             if (i == Math.pow(2, currentHeight + 1) - 2) {
                 currentHeight++;
@@ -70,14 +70,15 @@ public class Elimination extends Tournament implements java.io.Serializable{
             setEndDate(new Date(getStartDate().getTime() + (long) restDays * (height + 1) * 24 * 60 * 60 * 1000));
         }
         //check if the final date is before or on the same date as the end date or raise an error
-        if (matches.get(0).getDate().compareTo(getEndDate()) > 0) {
+        if (matches.get(0).getDate().compareTo(getEndDate()) >= 0) {
+            matches.clear();
             throw new Exception("The tournament cannot be finished in the given time, please reduce the number of rest days");
         }
 
         //fill the leafs, starting from the left, each leaf add the start date and one team only
         int Maxi = (int) Math.pow(2, height);
         for(int i = 0; i < Maxi; i++) {
-            matches.add(new Match(this, getStartDate(), teamsCopy.get(i)));
+            matches.add(new Match(this, getStartDate(), teamsCopy.get(i),1));
         }
 
         //fill the rest of the matches, starting from the first leaf, each match add one team only
@@ -120,34 +121,34 @@ public class Elimination extends Tournament implements java.io.Serializable{
 
 
     // a method to remove the affected team from the matches above the given match, in case of a editied match
-    public void editBracket(Match match){
-        //get the index of the match
-        int index = matches.indexOf(match);
-        //if the match is even, the team 1 will be removed
-        if ((matches.size() - index) % 2 == 0) {
-            matches.get((index-1) / 2).setTeam1(null);
-            //if the match is odd, the team 2 will be removed
-        } else {
-            matches.get((index-1) / 2).setTeam2(null);
-        }
-        //if the match is just under the root, no need to call the helper method
-        if ((index-1)/2 != 0){
-            helper((((index-1) / 2) - 1) / 2);
-        }
+    // public void editBracket(Match match){
+    //     //get the index of the match
+    //     int index = matches.indexOf(match);
+    //     //if the match is even, the team 1 will be removed
+    //     if ((matches.size() - index) % 2 == 0) {
+    //         matches.get((index-1) / 2).setTeam1(null);
+    //         //if the match is odd, the team 2 will be removed
+    //     } else {
+    //         matches.get((index-1) / 2).setTeam2(null);
+    //     }
+    //     //if the match is just under the root, no need to call the helper method
+    //     if ((index-1)/2 != 0){
+    //         helper((((index-1) / 2) - 1) / 2);
+    //     }
 
-    }
+    // }
     // a helper method to remove the affected team from the matches above the given match, in case of a editied match
-    private void helper(int i) {
-        //make a new match, keep the date and tournament only
-        Match match = new Match(this, matches.get(i).getDate());
-        //replace the match with the new match
-        matches.set(i, match);
-        //call the helper method again if the index is greater than 0
-        if (i > 0){
-            helper((i-1) / 2);
-        }
+    // private void helper(int i) {
+    //     //make a new match, keep the date and tournament only
+    //     Match match = new Match(this, matches.get(i).getDate());
+    //     //replace the match with the new match
+    //     matches.set(i, match);
+    //     //call the helper method again if the index is greater than 0
+    //     if (i > 0){
+    //         helper((i-1) / 2);
+    //     }
 
-    }
+    // }
 
     public void viewStanding() {
     }

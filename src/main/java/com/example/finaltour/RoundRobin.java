@@ -29,6 +29,8 @@ public class RoundRobin extends Tournament implements java.io.Serializable{
         if (getHasFinished()) {
             throw new Exception("Tournament has finished");
         }
+        
+
         ArrayList<Team> teamsCopy = new ArrayList<Team>(getTeams());
         if (teamsCopy.size()%2 == 1) teamsCopy.add(null);
         Collections.shuffle(teamsCopy);
@@ -37,12 +39,20 @@ public class RoundRobin extends Tournament implements java.io.Serializable{
         int nRounds = teamsCopy.size() -1;
         for(int round = 0; round < nRounds; round++){
             matches.add(new Match(this,teamsCopy.get(0),opponent.get(0),
-                    new Date(getStartDate().getTime()+ (long) restDays *round*24 * 60 * 60 * 1000)));
+                    new Date(getStartDate().getTime()+ (long) restDays *round*24 * 60 * 60 * 1000),round+1));
             for(int i= 1; i< teamsCopy.size()/2; i++){
                 matches.add(new Match(this,opponent.get(opponent.size()-i),opponent.get(i),
-                        new Date(getStartDate().getTime()+ (long) restDays *round*24 * 60 * 60 * 1000)));
+                        new Date(getStartDate().getTime()+ (long) restDays *round*24 * 60 * 60 * 1000),round+1));
             }
             Collections.rotate(opponent,1);
+        }
+        if (getEndDate() == null) {
+            setEndDate(new Date(getStartDate().getTime() + (long) restDays * (nRounds + 1) * 24 * 60 * 60 * 1000));
+        }
+        //check if the final date is before or on the same date as the end date or raise an error
+        if (matches.get(matches.size()-1).getDate().compareTo(getEndDate()) >= 0) {
+            matches.clear();
+            throw new Exception("The tournament cannot be finished in the given time, please reduce the number of rest days");
         }
 
     }
