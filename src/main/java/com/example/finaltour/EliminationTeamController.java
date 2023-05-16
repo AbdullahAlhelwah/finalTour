@@ -64,15 +64,8 @@ public class EliminationTeamController implements Initializable {
 
     @FXML
     void toTournament(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("TournamentPage.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.close();
 
     }
 
