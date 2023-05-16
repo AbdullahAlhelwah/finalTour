@@ -16,15 +16,15 @@ public class AddToTestTournaments {
             te.addStudent(new Student("BoSad"+j,"20"+j));
             testTournament1.addTeam(te);
         }
-        testTournament1.setOpen(false);
-        testTournament2.setOpen(false);
-        testTournament1.generateMatches(1);
-        testTournament2.generateMatches(3);
+        // testTournament1.setOpen(false);
+        // testTournament2.setOpen(false);
+        // testTournament1.generateMatches(1);
+        // testTournament2.generateMatches(3);
         Main.tournaments.add(testTournament1);
         Main.tournaments.add(testTournament2);
         Main.saveTournaments();
 
-        System.out.println(Main.tournaments.get(1).matches.get(Main.tournaments.get(1).matches.size()-1));
+        // System.out.println(Main.tournaments.get(1).matches.get(Main.tournaments.get(1).matches.size()-1));
         
 
 
