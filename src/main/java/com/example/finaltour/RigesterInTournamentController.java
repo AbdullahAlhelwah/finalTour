@@ -1,8 +1,5 @@
 package com.example.finaltour;
 
-import java.util.ArrayList;
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class RigesterInTournamentController {
 
@@ -118,8 +117,7 @@ public class RigesterInTournamentController {
 
                 TextField idTextField = (TextField) h.getChildren().get(0);
                 String id = idTextField.getText();
-
-                registeredTeam.getMembers().add(new Student(name, id)); 
+                registeredTeam.getMembers().add(new Student(name, id));
             }
             // add the team to tournament
             selectedTournament.addTeam(registeredTeam);
@@ -127,5 +125,5 @@ public class RigesterInTournamentController {
 
         }
     }
-    
+
 }
