@@ -82,8 +82,16 @@ public class MatchesByDateController implements Initializable {
 
     @FXML
     void toHome(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
+        //if admin
+        String page;
+        if(Main.isAdmin){
+            page = "adminPage.fxml";
+        }
+        else{
+            page = "userPage.fxml";
+        }
+        try{
+            root = FXMLLoader.load(getClass().getResource(page));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
