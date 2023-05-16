@@ -1,8 +1,5 @@
 package com.example.finaltour;
 
-import java.util.ArrayList;
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class RigesterInTournamentController {
 
@@ -70,7 +69,7 @@ public class RigesterInTournamentController {
     public void cotroller(Tournament t, Stage stage) {
         setSelectedTournament(t);
         setStage(stage);
-        if (t.getIsIndividual() == true) {
+        if (t.getIsIndividual()) {
             addMembersButton.setVisible(false);
             membersLabel.setText("Member");
             participantNameTextField.setVisible(false);
@@ -94,7 +93,7 @@ public class RigesterInTournamentController {
 
 
     public void confirm(ActionEvent event) {
-        if (selectedTournament.getIsIndividual() == true) {
+        if (selectedTournament.getIsIndividual()) {
             Student student = new Student(nameTextField.getText(), idTextField.getText());
             try {
                 registeredTeam = new Team(selectedTournament, "m1");
@@ -107,15 +106,18 @@ public class RigesterInTournamentController {
             stage.close();
 
         } else { // if the tournament is not individule
-            registeredTeam = new Team(selectedTournament, participantNameTextField.getText());
+            try {
+                registeredTeam = new Team(selectedTournament, participantNameTextField.getText());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             for (HBox h : members) { // add each student to the team
                 TextField nameTextField = (TextField) h.getChildren().get(0);
                 String name = nameTextField.getText();
 
                 TextField idTextField = (TextField) h.getChildren().get(0);
                 String id = idTextField.getText();
-
-                registeredTeam.getMembers().add(new Student(name, id)); 
+                registeredTeam.getMembers().add(new Student(name, id));
             }
             // add the team to tournament
             selectedTournament.addTeam(registeredTeam);
@@ -123,5 +125,5 @@ public class RigesterInTournamentController {
 
         }
     }
-    
+
 }

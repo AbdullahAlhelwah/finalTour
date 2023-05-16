@@ -80,16 +80,19 @@ public class SignInController{
                 name = userInfo[3];
                 email = userInfo[userInfo.length - 2];
             }
-            // close connection, return true
-            con.disconnect();
-            //show welcome massage, in black
+            //show welcome massage
             label.setText("Welcome " + name);
-            label.setStyle("-fx-text-fill: black;");
-
+            Main.isAdmin = isAdmin;
+            Main.username = name;
+            // close connection
+            con.disconnect();
             //switch to the next page
-            switchToFirstPage(event, isAdmin);
+            if (isAdmin) {
+                switchToAdminPage(event);
+            } else {
+                switchToFirstPage(event);
+            }
             return;
-
         }
         // if missing params, print "missing params"
         else if (status == 400) {
@@ -113,12 +116,25 @@ public class SignInController{
         //clear the fields
         usernameField.clear();
         passwordField.clear();
-        return;
-
     }
 
+    private void switchToAdminPage(ActionEvent event) {
+        Stage stage;
+        Scene scene;
+        Parent root;
 
-    public void switchToFirstPage(ActionEvent event, Boolean isAdmin) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void switchToFirstPage(ActionEvent event) {
         Stage stage;
         Scene scene;
         Parent root;
@@ -129,16 +145,14 @@ public class SignInController{
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-            //change the visibility of login button
-            Button loginButton = (Button) scene.lookup("#loginButton");
-            loginButton.setVisible(false);
-            //if admin, change the visibility of add tournament button
-            if (isAdmin) {
-                Button addTournamentButton = (Button) scene.lookup("#addTournamentButton");
-                addTournamentButton.setVisible(true);
+            //change the visibility of login button if the user is logged in
+            if(Main.username != "Guest"){
+                Button loginButton = (Button) scene.lookup("#myButton");
+                loginButton.setVisible(false);
+                //change the visibility of logout button
+                Button logoutButton = (Button) scene.lookup("#logoutButton");
+                logoutButton.setVisible(true);
             }
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }

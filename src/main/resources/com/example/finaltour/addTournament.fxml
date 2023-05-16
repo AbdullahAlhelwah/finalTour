@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
@@ -13,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.firstPageController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.AddTournamentController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="150.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="150.0" />
@@ -61,17 +67,19 @@
         <ComboBox fx:id="sportBox" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Basketball" />
-                    <String fx:value="Soccer" />
+                    <String fx:value="Football" />
                     <String fx:value="Volleyball" />
+                    <String fx:value="Badminton" />
+                    <String fx:value="other" />
                 </FXCollections>
             </items>
         </ComboBox>
         <Label text="Start Date:" GridPane.rowIndex="5" />
         <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-        <Label text="End Date:" GridPane.rowIndex="6" />
+        <Label text="End Date: (optional)" GridPane.rowIndex="6" />
         <DatePicker fx:id="endDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-        <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" text="Add" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+        <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="62.0" text="Add" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+      <Button fx:id="cancelButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#toAdminPage" prefHeight="27.0" prefWidth="69.0" text="Cancel" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="TOP" />
 
     </children>
 </GridPane>

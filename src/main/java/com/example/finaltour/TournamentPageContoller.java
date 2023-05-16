@@ -98,7 +98,7 @@ public class TournamentPageContoller {
         else
             typeLabel.setText("Elimination");
 
-        if(t.getHasFinished() == true) {
+        if(!t.getOpen()) {
             statusLabel.setText("Closed");
             statusLabel.setTextFill(Color.RED);
         } else {
@@ -109,6 +109,7 @@ public class TournamentPageContoller {
         // get the teams participated in the tournament 
         String particpants = "";
         for(Team team : t.getTeams())
+            if(team!=null)
             particpants += team.getName() + ", ";
 
         if (particpants.equals(""))

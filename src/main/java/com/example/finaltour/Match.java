@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Match implements Serializable{
-    private Tournament tournament;
+    private final Tournament tournament;
     private Team team1;
     private Team team2;
     private int goals1;
@@ -32,6 +32,7 @@ public class Match implements Serializable{
         tournament  = t;
         date = d;
         team1 = a;
+        team1Name = team1.getName();
     }
     public Match(Tournament t, Date d){
         tournament  = t;
@@ -96,9 +97,11 @@ public class Match implements Serializable{
     }
     public void setTeam1(Team team1) {
         this.team1 = team1;
+        team1Name = team1.getName();
     }
     public void setTeam2(Team team2) {
         this.team2 = team2;
+        team2Name = team2.getName();
     }
 
     // a method to record the score of the match (We can use this method to edit the score as well as record it)
@@ -234,7 +237,7 @@ public class Match implements Serializable{
 
     
     public String toString() {
-        return team1.getName()+" vs "+ team2.getName();
+        return team1.getName()+" vs "+ team2.getName()+"  "+date.toString();
     }
 
 }

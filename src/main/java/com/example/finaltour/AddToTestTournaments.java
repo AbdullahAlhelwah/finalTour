@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AddToTestTournaments {
     public static void main(String[] args) throws Exception {
+        Main.tournaments.clear();
         Tournament testTournament1 = new RoundRobin("myRoundRobin", false, "BasketBall", new Date());
         Tournament testTournament2 = new Elimination("myElimination",true, "tennis", new Date());
         // ana 7mar mswi 2 loop 
@@ -22,6 +23,8 @@ public class AddToTestTournaments {
         Main.tournaments.add(testTournament1);
         Main.tournaments.add(testTournament2);
         Main.saveTournaments();
+
+        System.out.println(Main.tournaments.get(1).matches.get(Main.tournaments.get(1).matches.size()-1));
         
 
 

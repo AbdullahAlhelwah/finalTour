@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static ArrayList<Tournament> tournaments = new ArrayList<>();
+    public static boolean isAdmin = false;
+    public static String username = "Guest";
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         loadTournaments();
         HelloApplication.main(args);
@@ -53,11 +55,9 @@ public class Main {
         // Read each tournament from the file and store it in the array
         for (int i = 0; i < numTournaments; i++) {
             Tournament tournament = (Tournament) ois.readObject();
-            if (tournament instanceof Elimination) {
-                Elimination elimination = (Elimination) tournament;
+            if (tournament instanceof Elimination elimination) {
                 tournaments.add(elimination);
-            } else if (tournament instanceof RoundRobin) {
-                RoundRobin roundRobin = (RoundRobin) tournament;
+            } else if (tournament instanceof RoundRobin roundRobin) {
                 tournaments.add(roundRobin) ;
             } else {
                 tournaments.add(tournament);

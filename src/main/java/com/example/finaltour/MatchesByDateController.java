@@ -46,9 +46,6 @@ public class MatchesByDateController implements Initializable {
     @FXML
     private TableColumn<Match, String> team2;
 
-    RoundRobin r = new RoundRobin("ddd",false,"fff",new Date());
-    Team t1 = new Team(r,"ggg");
-    Team t2 = new Team(r,"hhh");
     ArrayList<Match> aLLmatches = new ArrayList<>();
     ArrayList<Match> matches = new ArrayList<>();
     
@@ -56,33 +53,21 @@ public class MatchesByDateController implements Initializable {
 
 
 
-
+    // search button
     @FXML
     void findMatches(ActionEvent event) {
         
         
         matches.clear();
 
-
-        String dateString = "2023-05-15"; // The given date string  // selected date
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-        try {
-            Date date = dateFormat.parse(dateString);
-            matches.add(new Match(r,t1,t2,date));
-        } catch (ParseException e) {
-            System.out.println("Invalid date format");
-        }
-
         LocalDate date0 = datePicker.getValue();
-        Date date = Date.from(date0.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        for (int i=0;i<aLLmatches.size();i++)
-            if (aLLmatches.get(i).getDate().equals(date))
+        for (int i=0;i<aLLmatches.size();i++){
+            LocalDate localDate = aLLmatches.get(i).getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            if (localDate.equals(date0))
                 matches.add(aLLmatches.get(i));
-            
+            }
 
 
-        
         matchDate.setCellValueFactory(new PropertyValueFactory<Match,Date>("date"));
         team1.setCellValueFactory(new PropertyValueFactory<Match,String>("team1Name"));
         team2.setCellValueFactory(new PropertyValueFactory<Match,String>("team2Name"));
@@ -97,8 +82,16 @@ public class MatchesByDateController implements Initializable {
 
     @FXML
     void toHome(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
+        //if admin
+        String page;
+        if(Main.isAdmin){
+            page = "adminPage.fxml";
+        }
+        else{
+            page = "firstPage.fxml";
+        }
+        try{
+            root = FXMLLoader.load(getClass().getResource(page));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
