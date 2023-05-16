@@ -165,6 +165,7 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                selectedObjectTournament = null;
                 selectedTournamentName = currentTournaments.getSelectionModel().getSelectedItem(); // get the name of the selected tournament
 
                 //search for the tournament and display its details
@@ -191,6 +192,7 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                selectedObjectTournament = null;
                 selectedTournamentName = prevTournaments.getSelectionModel().getSelectedItem();
 
                 for(int i = 0; i < prevTournamentT.size(); i++) {
@@ -209,6 +211,7 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                selectedObjectTournament = null;
                 selectedTournamentName = upcommingTournaments.getSelectionModel().getSelectedItem();
 
                 for(int i = 0; i < nexTournamentT.size(); i++) {

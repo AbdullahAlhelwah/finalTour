@@ -33,10 +33,12 @@ public class Match implements Serializable{
         date = d;
         team1 = a;
         team1Name = team1.getName();
+        tourName = t.getName();
     }
     public Match(Tournament t, Date d){
         tournament  = t;
         date = d;
+        tourName = t.getName();
     }
 
 
