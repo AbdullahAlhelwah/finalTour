@@ -109,26 +109,11 @@ public class MyController implements Initializable {
 
     private String selectedTournamentName;
 
-    //test samples. this should be read from a file.
-
-
-    // RoundRobin t1 = new RoundRobin("البطولة العالمية للمتأزمين", false, "football", null);
-    // RoundRobin t2 = new RoundRobin("البطولة الدولية للمتأزمين", true, "football", null);
-    // RoundRobin t3 = new RoundRobin("tournament2", false, "football", null);
-    // RoundRobin t4 = new RoundRobin("tournament3", false, "football", null);
-    // RoundRobin t5 = new RoundRobin("tournament4", false, "football", null);
+    
     Elimination e = new Elimination("fff",false,"fff",new Date(0000));
 
 
-    // this array will be used to populate the ListView.
-    // String[] currentTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName(),e.getName()};
-    // String[] prevtTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName()};
-    // String[] upCommintTournament = {t1.getName(),t2.getName(),t3.getName(),t4.getName(),t5.getName()};
 
-    // this array is to display the details of a tournament.
-    // Tournament[] currentTournamentT = {t1,t2,t3,t4,t5,e};
-    // Tournament[] prevTournamentT = {t1,t2,t3,t4,t5};
-    // Tournament[] upCommingTournamentT = {t1,t2,t3,t4,t5};
 
     ArrayList<String> currentTourNames = new ArrayList<>();
     ArrayList<String> prevTournamentsNames = new ArrayList<>();
@@ -143,12 +128,14 @@ public class MyController implements Initializable {
     Button logoutButton = new Button();
     @FXML
     Button myButton = new Button();
-
+    protected BooleanProperty isStu =  new SimpleBooleanProperty(false); 
     private BooleanProperty login = new SimpleBooleanProperty(Main.username.equals("Guest"));
     private BooleanProperty logout = new SimpleBooleanProperty(!Main.username.equals("Guest"));
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //set the visibality of login button and logout button
+        isStu.set(!Main.isAdmin && !Main.username.equals("Guest"));
+        profileButton.visibleProperty().bind(isStu);
         myButton.visibleProperty().bind(login);
         logoutButton.visibleProperty().bind(logout);
 
@@ -166,12 +153,6 @@ public class MyController implements Initializable {
                 nextTournamentNames.add(tt.getName());
             }
         }
-    //    ArrayList<Match> matches = e.getMatches();
-    //    matches.add(new Match(e,new Team(e,"sss"),new Team(e,"FFF"),new Date(1111)));
-    //    matches.add(new Match(e,new Team(e,"hhh"),new Team(e,"www"),new Date(1111)));
-    //    matches.add(new Match(e,new Team(e,"bbb"),new Team(e,"Fmmm"),new Date(1111)));
-    //    matches.add(new Match(e,new Team(e,"ooo"),new Team(e,"Fqq"),new Date(1111)));
-        showDetailsBottun.setVisible(false); // it is not visibale untill a tournament is selected.
 
         // populating the Lists
         currentTournaments.getItems().addAll(currentTourNames);
@@ -200,11 +181,7 @@ public class MyController implements Initializable {
             }   
         });
 
-        // "The name of the tournament is: " + currentTournamentT[i].getName() + 
-        //                 "\nIs Individual? " + currentTournamentT[i].getIsIndividual() + 
-        //                 "          The Sport: " + currentTournamentT[i].getSport() +
-        //                 "\nHas Finished? " + currentTournamentT[i].getHasFinished()
-
+    
         
         prevTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()  {
 
@@ -284,7 +261,6 @@ public class MyController implements Initializable {
     public void logout(ActionEvent actionEvent) throws IOException {
         Main.username = "Guest";
         Main.isAdmin = false;
-        Main.isStu = false;
         //set sign in button to visible
 
 

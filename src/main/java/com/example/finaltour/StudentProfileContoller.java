@@ -28,27 +28,27 @@ public class StudentProfileContoller implements Initializable {
     @FXML
     private Button goBackButton;
 
-    Student student = new Student("mishary", "20203"); // sample
-    ArrayList<Team> allTeams = student.getAllTeams();
+    Student student;
+
+    ArrayList<Team> stuTeams;
 
     String[] teams;
     String[] tournaments;
 
     public void initialize(URL location, ResourceBundle resources) {
+        if (teamPlayerController.playerNoob != null)
+            student = teamPlayerController.playerNoob;
+        stuTeams = student.getAllTeams();
         stuNameLabel.setText(student.getName());
         stuIdLabel1.setText(student.getId());
 
-        try {
-            student.addTeam(new Team(new RoundRobin("tournament", false, null, null), "team1"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        teams = new String[allTeams.size()];
-        tournaments  = new String[allTeams.size()];
+        
+        teams = new String[stuTeams.size()];
+        tournaments  = new String[stuTeams.size()];
 
-        for (int i = 0; i < allTeams.size(); i++) {
-            teams[i] = allTeams.get(i).getName();
-            tournaments[i] = allTeams.get(i).getTournament().getName();
+        for (int i = 0; i < stuTeams.size(); i++) {
+            teams[i] = stuTeams.get(i).getName();
+            tournaments[i] = stuTeams.get(i).getTournament().getName();
         }
         teamsList.getItems().addAll(teams);
         tournamentsList.getItems().addAll(tournaments);

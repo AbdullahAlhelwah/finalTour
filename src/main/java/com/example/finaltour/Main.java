@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Main {
     public static ArrayList<Tournament> tournaments = new ArrayList<>();
     public static boolean isAdmin = false;
-    public static boolean isStu = false;
     public static String username = "Guest";
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         loadTournaments();

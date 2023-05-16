@@ -36,14 +36,27 @@ public class EliminationTeamController implements Initializable {
     @FXML
     void toTeamDetails(ActionEvent event) {
         selectedTeam = table.getSelectionModel().getSelectedItem();
-        try {
-            root = FXMLLoader.load(getClass().getResource("teamPlayers.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(!selectedTeam.getTournament().getIsIndividual()){
+            try {
+                root = FXMLLoader.load(getClass().getResource("teamPlayers.fxml"));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            teamPlayerController.playerNoob = selectedTeam.getMembers().get(0);
+            try {
+                root = FXMLLoader.load(getClass().getResource("StudentProfile.fxml"));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 
