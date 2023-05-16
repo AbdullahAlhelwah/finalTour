@@ -204,6 +204,7 @@ public class TournamentPageContoller implements Initializable {
     @FXML
     void closeRegisteration(ActionEvent event) {
         selectedTournament.setOpen(false);
+        stage.close();
 
 
     }
