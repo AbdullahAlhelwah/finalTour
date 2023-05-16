@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -81,13 +82,35 @@ public class matchesListController implements Initializable {
     }
     @FXML
     void record(ActionEvent event) {
-        int g1 = Integer.parseInt(goals1.getText());
-        int g2 = Integer.parseInt(goals2.getText());
         Match m = table.getSelectionModel().getSelectedItem();
         try {
+            if (m.getTeam1Name().equals("TBA")||m.getTeam2Name().equals("TBA"))
+                throw new RuntimeException();
+            int g1 = Integer.parseInt(goals1.getText());
+            int g2 = Integer.parseInt(goals2.getText());
+
             m.recordScore(g1,g2);
+
+        } catch (NumberFormatException n){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid input");
+            alert.setContentText("You can only enter integer");
+            alert.showAndWait();
+
+        } catch (RuntimeException r){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid input");
+            alert.setContentText("You can not record a match with TBA team");
+            alert.showAndWait();
+
         } catch (Exception e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid input");
+            alert.setContentText("You can not edit elimination match");
+            alert.showAndWait();
         }
 
 

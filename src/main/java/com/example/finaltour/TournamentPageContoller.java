@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -53,6 +54,10 @@ public class TournamentPageContoller implements Initializable {
     Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private TextField restingDays;
+
 
 
     @FXML
@@ -205,6 +210,17 @@ public class TournamentPageContoller implements Initializable {
 
     @FXML
     void generateMatches(ActionEvent event) {
+        int days = Integer.parseInt(restingDays.getText());
+        try {
+            selectedTournament.generateMatches(days);
+        }
+        catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid input");
+            alert.setContentText("number of resting days is not valid");
+            alert.showAndWait();
+        }
 
     }
     
