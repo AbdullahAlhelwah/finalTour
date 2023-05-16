@@ -143,12 +143,14 @@ public class MyController implements Initializable {
     Button logoutButton = new Button();
     @FXML
     Button myButton = new Button();
-
+    protected BooleanProperty isStu =  new SimpleBooleanProperty(false); 
     private BooleanProperty login = new SimpleBooleanProperty(Main.username.equals("Guest"));
     private BooleanProperty logout = new SimpleBooleanProperty(!Main.username.equals("Guest"));
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //set the visibality of login button and logout button
+        isStu.set(!Main.isAdmin && !Main.username.equals("Guest"));
+        profileButton.visibleProperty().bind(isStu);
         myButton.visibleProperty().bind(login);
         logoutButton.visibleProperty().bind(logout);
 
@@ -284,7 +286,6 @@ public class MyController implements Initializable {
     public void logout(ActionEvent actionEvent) throws IOException {
         Main.username = "Guest";
         Main.isAdmin = false;
-        Main.isStu = false;
         //set sign in button to visible
 
 
