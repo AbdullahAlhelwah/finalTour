@@ -49,7 +49,7 @@ public class TournamentPageContoller implements Initializable {
     @FXML
     private TextFlow participantTextFlow;
 
-    static Tournament selectedTournament;
+        static Tournament selectedTournament;
     Stage stage;
     private Scene scene;
     private Parent root;
