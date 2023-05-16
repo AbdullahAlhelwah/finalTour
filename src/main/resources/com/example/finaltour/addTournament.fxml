@@ -61,15 +61,16 @@
         <ComboBox fx:id="sportBox" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Basketball" />
-                    <String fx:value="Soccer" />
+                    <String fx:value="Football" />
                     <String fx:value="Volleyball" />
+                    <String fx:value="Badminton" />
+                    <String fx:value="other" />
                 </FXCollections>
             </items>
         </ComboBox>
         <Label text="Start Date:" GridPane.rowIndex="5" />
         <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-        <Label text="End Date:" GridPane.rowIndex="6" />
+        <Label text="End Date: (optional)" GridPane.rowIndex="6" />
         <DatePicker fx:id="endDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="6" />
         <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" text="Add" GridPane.columnSpan="2" GridPane.rowIndex="7" />
 

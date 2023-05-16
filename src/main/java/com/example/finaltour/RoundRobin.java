@@ -11,6 +11,10 @@ public class RoundRobin extends Tournament implements java.io.Serializable{
     public RoundRobin(String name, boolean isIndividual, String sport, Date startDate) {
         super(name, isIndividual, sport, startDate);
     }
+    // another constructor with endDate
+    public RoundRobin(String name, boolean isIndividual, String sport, Date startDate, Date endDate) {
+        super(name, isIndividual, sport, startDate, endDate);
+    }
 
     public void generateMatches(int restDays) throws Exception {
         if (restDays < 0) {
