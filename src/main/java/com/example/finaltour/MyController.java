@@ -61,6 +61,7 @@ public class MyController implements Initializable {
             Stage secondStage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TournamentPage.fxml"));
             Parent root = loader.load();
+            secondStage.setResizable(false);
 
             TournamentPageContoller tournamentPageContoller = loader.getController();
             tournamentPageContoller.populatePage(selectedObjectTournament, secondStage); // to send the object to the tournament page
