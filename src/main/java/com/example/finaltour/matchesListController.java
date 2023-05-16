@@ -1,5 +1,7 @@
 package com.example.finaltour;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,6 +55,7 @@ public class matchesListController implements Initializable {
 
     @FXML
     private TextField goals2;
+    private BooleanProperty adminCond = new SimpleBooleanProperty(false);   
 
     @FXML
     void toTournament(ActionEvent event) {
@@ -71,6 +74,9 @@ public class matchesListController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        adminCond.set(Main.isAdmin);
+        adminVbox.visibleProperty().bind(adminCond);
+
         team1Name.setCellValueFactory(new PropertyValueFactory<Match,String>("team1Name"));
         team2Name.setCellValueFactory(new PropertyValueFactory<Match,String>("team2Name"));
         result.setCellValueFactory(new PropertyValueFactory<Match,String>("result"));

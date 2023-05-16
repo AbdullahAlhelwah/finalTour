@@ -52,7 +52,7 @@ public class MyController implements Initializable {
     @FXML
     private Button showDetailsBottun;
 
-    public Tournament selectedObjectTournament; // we save the object for tournament page.
+    public static Tournament selectedObjectTournament; // we save the object for tournament page.
     
     // this method to set the action event for the button show Details
     public void switchToTournamentPage(ActionEvent event) {

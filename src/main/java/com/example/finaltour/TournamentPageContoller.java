@@ -70,6 +70,7 @@ public class TournamentPageContoller implements Initializable {
         //set the visibility of login button and logout button
         generateButton.visibleProperty().bind(generate);
         closeRegButton.visibleProperty().bind(close);
+        restingDays.visibleProperty().bind(generate);
     }
 
     public void setSelectedTournament(Tournament t) {
@@ -101,6 +102,7 @@ public class TournamentPageContoller implements Initializable {
             e.printStackTrace();
         }
     }
+    
 
     public void populatePage(Tournament t, Stage s) {
         setStage(s);
