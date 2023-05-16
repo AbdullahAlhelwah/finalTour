@@ -109,6 +109,7 @@ public class TournamentPageContoller {
         // get the teams participated in the tournament 
         String particpants = "";
         for(Team team : t.getTeams())
+            if(team!=null)
             particpants += team.getName() + ", ";
 
         if (particpants.equals(""))

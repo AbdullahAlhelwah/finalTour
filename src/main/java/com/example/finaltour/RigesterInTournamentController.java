@@ -107,7 +107,11 @@ public class RigesterInTournamentController {
             stage.close();
 
         } else { // if the tournament is not individule
-            registeredTeam = new Team(selectedTournament, participantNameTextField.getText());
+            try {
+                registeredTeam = new Team(selectedTournament, participantNameTextField.getText());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             for (HBox h : members) { // add each student to the team
                 TextField nameTextField = (TextField) h.getChildren().get(0);
                 String name = nameTextField.getText();
