@@ -17,14 +17,15 @@ public class Team implements Comparable<Team>,Serializable{
     // for individual tournaments
     public Team(Tournament t,Student s) throws Exception{
         if(s.participateIn(t)) throw new Exception("Student already in tournament");
-
+        if(!t.getOpen()) throw new Exception("tournament closed");
         tournament = t;
         name = s.getName();
 
-        // fail message
+        
     }
     // another constructor (can be used for both tournaments)
-    public Team(Tournament tournament,String name){
+    public Team(Tournament tournament,String name) throws Exception{
+        if(!tournament.getOpen()) throw new Exception("tournament closed");
         this.name = name;
         this.tournament = tournament;
     }
