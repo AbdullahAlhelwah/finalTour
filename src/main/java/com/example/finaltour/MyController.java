@@ -284,6 +284,7 @@ public class MyController implements Initializable {
     public void logout(ActionEvent actionEvent) throws IOException {
         Main.username = "Guest";
         Main.isAdmin = false;
+        Main.isStu = false;
         //set sign in button to visible
 
 
