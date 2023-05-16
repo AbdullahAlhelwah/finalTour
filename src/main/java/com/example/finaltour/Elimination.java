@@ -58,7 +58,7 @@ public class Elimination extends Tournament implements java.io.Serializable{
         for (int i = 0; i < stop; i++) {
 
             date = new Date(getStartDate().getTime() + (long) restDays * (height - currentHeight) * 24 * 60 * 60 * 1000);
-            matches.add(new Match(this, date,height-currentHeight));
+            matches.add(new Match(this, date,height-currentHeight+1));
 
             if (i == Math.pow(2, currentHeight + 1) - 2) {
                 currentHeight++;
