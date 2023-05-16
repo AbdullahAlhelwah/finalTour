@@ -58,7 +58,7 @@ public class TournamentPageContoller implements Initializable {
     @FXML
     private Button generateButton;
     @FXML private Button closeRegButton;
-    private BooleanProperty generate = new SimpleBooleanProperty(Main.isAdmin && !selectedTournament.getOpen());
+    private BooleanProperty generate = new SimpleBooleanProperty(Main.isAdmin && !selectedTournament.getOpen() && selectedTournament.getMatches().size() == 0);
     private BooleanProperty close = new SimpleBooleanProperty(Main.isAdmin && selectedTournament.getOpen());
     @Override
     public void initialize(URL location, ResourceBundle resources) {
