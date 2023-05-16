@@ -11,6 +11,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -165,7 +166,12 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                selectedTournamentName = currentTournaments.getSelectionModel().getSelectedItem(); // get the name of the selected tournament
+                ObservableList<String> selectedItems = currentTournaments.getSelectionModel().getSelectedItems();
+                if (!selectedItems.isEmpty()) {
+                    selectedTournamentName = selectedItems.get(selectedItems.size()-1);
+                    }
+
+                // selectedTournamentName = currentTournaments.getSelectionModel().getSelectedItem(); // get the name of the selected tournament
 
                 //search for the tournament and display its details
                 for(int i = 0; i < currentTournamentT.size(); i++) {
@@ -191,7 +197,11 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                selectedTournamentName = prevTournaments.getSelectionModel().getSelectedItem();
+                ObservableList<String> selectedItems = prevTournaments.getSelectionModel().getSelectedItems();
+                if (!selectedItems.isEmpty()) {
+                    selectedTournamentName = selectedItems.get(selectedItems.size()-1);
+                    }
+                // selectedTournamentName = prevTournaments.getSelectionModel().getSelectedItem();
 
                 for(int i = 0; i < prevTournamentT.size(); i++) {
                     if(prevTournamentT.get(i).getName().equals(selectedTournamentName)) { // get the object givin the name of the tournament
@@ -209,7 +219,11 @@ public class MyController implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                selectedTournamentName = upcommingTournaments.getSelectionModel().getSelectedItem();
+                ObservableList<String> selectedItems = upcommingTournaments.getSelectionModel().getSelectedItems();
+                if (!selectedItems.isEmpty()) {
+                    selectedTournamentName = selectedItems.get(selectedItems.size()-1);
+                    }
+                // selectedTournamentName = upcommingTournaments.getSelectionModel().getSelectedItem();
 
                 for(int i = 0; i < nexTournamentT.size(); i++) {
                     if(nexTournamentT.get(i).getName().equals(selectedTournamentName)) {
