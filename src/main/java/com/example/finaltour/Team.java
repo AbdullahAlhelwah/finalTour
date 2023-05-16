@@ -14,12 +14,14 @@ public class Team implements Comparable<Team>,Serializable{
     private int wins;
     private int losses;
     private int draws;
+
     // for individual tournaments
     public Team(Tournament t,Student s) throws Exception{
         if(s.participateIn(t)) throw new Exception("Student already in tournament");
         if(!t.getOpen()) throw new Exception("tournament closed");
         tournament = t;
         name = s.getName();
+        members.add(s);
 
         
     }

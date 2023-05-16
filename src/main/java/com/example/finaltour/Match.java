@@ -16,10 +16,11 @@ public class Match implements Serializable{
     private String team2Name;
     private String tourName;
     private String result;
+    private int round;
 
 
     //Match constructor
-    public Match(Tournament t, Team a, Team b, Date d){
+    public Match(Tournament t, Team a, Team b, Date d,int r){
         tournament  = t;
         team1 = a;
         team2 = b;
@@ -27,19 +28,28 @@ public class Match implements Serializable{
         team2Name = b.getName();
         tourName = t.getName();
         date = d;
+        result = "TBA";
+        round =r;
     }
     //another constructors with 1/without Teams
-    public Match(Tournament t, Date d, Team a){
+    public Match(Tournament t, Date d, Team a,int r){
         tournament  = t;
         date = d;
         team1 = a;
         team1Name = team1.getName();
+        team2Name = "TBA";
         tourName = t.getName();
+        result = "TBA";
+        round =r;
     }
-    public Match(Tournament t, Date d){
+    public Match(Tournament t, Date d,int r){
         tournament  = t;
         date = d;
         tourName = t.getName();
+        team1Name = "TBA";
+        team2Name = "TBA";
+        result = "TBA";
+        round =r;
     }
 
 
@@ -75,6 +85,9 @@ public class Match implements Serializable{
 
     public String getTourName() {
         return tourName;
+    }
+    public int getRound() {
+        return round;
     }
 
     public Team getWinner() {

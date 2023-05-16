@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -54,6 +55,10 @@ public class TournamentPageContoller implements Initializable {
     private Scene scene;
     private Parent root;
 
+    @FXML
+    private TextField restingDays;
+
+
 
     @FXML
     private Button generateButton;
@@ -65,6 +70,7 @@ public class TournamentPageContoller implements Initializable {
         //set the visibility of login button and logout button
         generateButton.visibleProperty().bind(generate);
         closeRegButton.visibleProperty().bind(close);
+        restingDays.visibleProperty().bind(generate);
     }
 
     public void setSelectedTournament(Tournament t) {
@@ -96,6 +102,7 @@ public class TournamentPageContoller implements Initializable {
             e.printStackTrace();
         }
     }
+    
 
     public void populatePage(Tournament t, Stage s) {
         setStage(s);
@@ -185,17 +192,38 @@ public class TournamentPageContoller implements Initializable {
 
     @FXML
     void toMatches(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("matchesList.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
     @FXML
     void closeRegisteration(ActionEvent event) {
         selectedTournament.setOpen(false);
+        stage.close();
 
 
     }
 
     @FXML
     void generateMatches(ActionEvent event) {
+        int days = Integer.parseInt(restingDays.getText());
+        try {
+            selectedTournament.generateMatches(days);
+        }
+        catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid input");
+            alert.setContentText("number of resting days is not valid");
+            alert.showAndWait();
+        }
 
     }
     

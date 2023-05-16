@@ -68,7 +68,7 @@ public class MyController implements Initializable {
     @FXML
     private Button showDetailsBottun;
 
-    public Tournament selectedObjectTournament; // we save the object for tournament page.
+    public static Tournament selectedObjectTournament; // we save the object for tournament page.
     
     // this method to set the action event for the button show Details
     public void switchToTournamentPage(ActionEvent event) {
@@ -77,6 +77,7 @@ public class MyController implements Initializable {
             Stage secondStage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TournamentPage.fxml"));
             Parent root = loader.load();
+            secondStage.setResizable(false);
 
             TournamentPageContoller tournamentPageContoller = loader.getController();
             tournamentPageContoller.populatePage(selectedObjectTournament, secondStage); // to send the object to the tournament page

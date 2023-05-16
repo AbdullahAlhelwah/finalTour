@@ -84,14 +84,23 @@ public class EliminationPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tourName.setText(e.getName());
 
-        team1.setText(matches.get(matches.size()-1).getTeam1().getName());
-        team2.setText(matches.get(matches.size()-1).getTeam2().getName());
-        team3.setText(matches.get(matches.size()-2).getTeam1().getName());
-        team4.setText(matches.get(matches.size()-2).getTeam2().getName());
-        team5.setText(matches.get(matches.size()-3).getTeam1().getName());
-        team6.setText(matches.get(matches.size()-3).getTeam2().getName());
-        team7.setText(matches.get(matches.size()-4).getTeam1().getName());
-        team8.setText(matches.get(matches.size()-4).getTeam2().getName());
+        team1.setText(matches.get(matches.size()-1).getTeam1Name());
+        team2.setText(matches.get(matches.size()-1).getTeam2Name());
+        team3.setText(matches.get(matches.size()-2).getTeam1Name());
+        team4.setText(matches.get(matches.size()-2).getTeam2Name());
+        team5.setText(matches.get(matches.size()-3).getTeam1Name());
+        team6.setText(matches.get(matches.size()-3).getTeam2Name());
+        team7.setText(matches.get(matches.size()-4).getTeam2Name());
+        team8.setText(matches.get(matches.size()-4).getTeam1Name());
+        team9.setText(matches.get(matches.size()-5).getTeam2Name());
+        team10.setText(matches.get(matches.size()-5).getTeam1Name());
+        team11.setText(matches.get(matches.size()-6).getTeam2Name());
+        team12.setText(matches.get(matches.size()-6).getTeam1Name());
+        team13.setText(matches.get(matches.size()-7).getTeam2Name());
+        team14.setText(matches.get(matches.size()-7).getTeam1Name());
+        team15.setText(e.getWinnerName());
+
+
 
 
     }

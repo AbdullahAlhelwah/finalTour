@@ -216,6 +216,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="250.0" layoutY="715.0" mnemonicParsing="false" onAction="#toTournamentPage" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: darkblue;" text="return to tournament page" textFill="WHITE" />
+      <Button layoutX="250.0" layoutY="715.0" mnemonicParsing="false" onAction="#toTournamentPage" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: #0026be;" text="return to tournament page" textFill="WHITE" />
    </children>
 </AnchorPane>
