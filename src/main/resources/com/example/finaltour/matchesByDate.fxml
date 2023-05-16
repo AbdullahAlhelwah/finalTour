@@ -25,12 +25,11 @@
             </Button>
          </children>
       </VBox>
-      <TableView fx:id="table" layoutX="144.0" layoutY="132.0" prefHeight="423.0" prefWidth="603.0" stylesheets="@table_style.css">
+      <TableView fx:id="table" layoutX="144.0" layoutY="132.0" prefHeight="423.0" prefWidth="452.0" stylesheets="@table_style.css">
         <columns>
           <TableColumn fx:id="team1" prefWidth="150.0" text="team1" />
           <TableColumn fx:id="team2" prefWidth="150.0" text="team2" />
             <TableColumn fx:id="TorName" prefWidth="150.0" text="Tournament" />
-            <TableColumn fx:id="matchDate" prefWidth="150.0" text="Match Date" />
         </columns>
       </TableView>
       <Label alignment="CENTER" layoutX="146.0" layoutY="40.0" prefWidth="600.0" text="Match list " textFill="DARKBLUE">

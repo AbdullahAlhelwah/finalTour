@@ -31,7 +31,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKBLUE" height="44.0" stroke="DARKBLUE" strokeType="INSIDE" width="274.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0026be" height="44.0" stroke="DARKBLUE" strokeType="INSIDE" style="-fx-background-color: #0026be;" width="274.0">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -64,7 +64,7 @@
                   <Insets left="25.0" />
                </GridPane.margin>
             </JFXCheckBox>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKBLUE" height="44.0" layoutX="10.0" layoutY="10.0" stroke="DARKBLUE" strokeType="INSIDE" width="274.0" GridPane.rowIndex="3" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0026be" height="44.0" layoutX="10.0" layoutY="10.0" stroke="DARKBLUE" strokeType="INSIDE" style="-fx-background-color: #0026be;" width="274.0" GridPane.rowIndex="3" />
             <JFXCheckBox checkedColor="DARKBLUE" layoutX="10.0" layoutY="54.0" prefHeight="45.0" prefWidth="138.0" text="Soccer" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="25.0" />
@@ -93,7 +93,7 @@
                   <Insets left="20.0" />
                </GridPane.margin>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKBLUE" height="44.0" layoutX="10.0" layoutY="142.0" stroke="DARKBLUE" strokeType="INSIDE" width="274.0" GridPane.rowIndex="6" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0026be" height="44.0" layoutX="10.0" layoutY="142.0" stroke="DARKBLUE" strokeType="INSIDE" style="-fx-background-color: #0026be;" width="274.0" GridPane.rowIndex="6" />
             <Label layoutX="30.0" layoutY="142.0" prefHeight="154.0" prefWidth="138.0" text="Status" textFill="WHITE" GridPane.rowIndex="6">
                <font>
                   <Font name="Open Sans" size="18.0" />
@@ -122,7 +122,7 @@
                   <Insets left="25.0" />
                </GridPane.margin>
             </JFXCheckBox>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#toHome" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: darkblue;" text="Cancel" textFill="WHITE" GridPane.rowIndex="9">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#toHome" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: #0026be;" text="Cancel" textFill="WHITE" GridPane.rowIndex="9">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>
@@ -130,7 +130,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#toHome" prefHeight="26.0" prefWidth="145.0" style="-fx-background-color: darkblue;" text="Confirm" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#toHome" prefHeight="26.0" prefWidth="145.0" style="-fx-background-color: #0026be;" text="Confirm" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>

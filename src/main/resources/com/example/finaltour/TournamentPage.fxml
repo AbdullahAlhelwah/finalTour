@@ -90,7 +90,7 @@
       </HBox>
       <Button layoutX="221.0" layoutY="409.0" mnemonicParsing="false" onAction="#toTeams" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #0026be;" text="Teams" textFill="WHITE" />
       <Button layoutX="18.0" layoutY="409.0" mnemonicParsing="false" onAction="#toMatches" prefHeight="26.0" prefWidth="63.0" style="-fx-background-color: #0026be;" text="Matches" textFill="WHITE" />
-      <Button fx:id="closeRegButton" layoutX="88.0" layoutY="409.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #0026be;" text="Close registration" textFill="WHITE" />
-      <Button fx:id="generateButton" layoutX="88.0" layoutY="409.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #0026be;" text="Generate Matches" textFill="WHITE" />
+      <Button fx:id="closeRegButton" layoutX="88.0" layoutY="409.0" mnemonicParsing="false" onAction="#closeRegisteration" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #0026be;" text="Close registration" textFill="WHITE" />
+      <Button fx:id="generateButton" layoutX="88.0" layoutY="409.0" mnemonicParsing="false" onAction="#generateMatches" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #0026be;" text="Generate Matches" textFill="WHITE" />
    </children>
 </AnchorPane>
