@@ -24,7 +24,7 @@ public class AddToTestTournaments {
         Main.tournaments.add(testTournament2);
         Main.saveTournaments();
 
-        System.out.println(Main.tournaments.get(1).matches.get(0));
+        // System.out.println(Main.tournaments.get(1).matches.get(0));
         
 
 
