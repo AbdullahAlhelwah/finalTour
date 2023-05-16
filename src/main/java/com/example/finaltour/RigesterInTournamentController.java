@@ -96,7 +96,7 @@ public class RigesterInTournamentController {
         if (selectedTournament.getIsIndividual()) {
             Student student = new Student(nameTextField.getText(), idTextField.getText());
             try {
-                registeredTeam = new Team(selectedTournament, "m1");
+                registeredTeam = new Team(selectedTournament, student);
                 registeredTeam.addStudent(student);
             } catch (Exception e) {
                 e.printStackTrace();
