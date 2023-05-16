@@ -88,7 +88,7 @@ public class MatchesByDateController implements Initializable {
             page = "adminPage.fxml";
         }
         else{
-            page = "userPage.fxml";
+            page = "firstPage.fxml";
         }
         try{
             root = FXMLLoader.load(getClass().getResource(page));

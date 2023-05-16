@@ -1,14 +1,5 @@
 package com.example.finaltour;
 
-import java.io.IOException;
-import java.net.URL;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.ResourceBundle;
-
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -18,12 +9,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
 
@@ -82,21 +77,21 @@ public class AdminController implements Initializable {
     ArrayList<String> prevTournamentsNames = new ArrayList<>();
     ArrayList<String> nextTournamentNames = new ArrayList<>();
     ArrayList<Tournament> currentTournamentT = new ArrayList<>();
-    ArrayList<Tournament> prevTournamentT =  new ArrayList<>();
+    ArrayList<Tournament> prevTournamentT = new ArrayList<>();
     ArrayList<Tournament> nexTournamentT = new ArrayList<>();
 
     ArrayList<Tournament> allTournaments = Main.tournaments;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        for(Tournament tt: Main.tournaments){
-            if(tt.getStatues().equals("Archived")){
+        for (Tournament tt : Main.tournaments) {
+            if (tt.getStatues().equals("Archived")) {
                 prevTournamentT.add(tt);
                 prevTournamentsNames.add(tt.getName());
-            }else if(tt.getStatues().equals("started")){
+            } else if (tt.getStatues().equals("started")) {
                 currentTourNames.add(tt.getName());
                 currentTournamentT.add(tt);
-            }else{
+            } else {
                 nexTournamentT.add(tt);
                 nextTournamentNames.add(tt.getName());
             }
@@ -110,15 +105,15 @@ public class AdminController implements Initializable {
         upcommingTournaments.getItems().addAll(nextTournamentNames);
 
         // this code listen for any change in the selected cell and change the lable below
-        currentTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()  {
+        currentTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 selectedTournamentName = currentTournaments.getSelectionModel().getSelectedItem(); // get the name of the selected tournament
 
                 //search for the tournament and display its details
-                for(int i = 0; i < currentTournamentT.size(); i++) {
-                    if(currentTournamentT.get(i).getName().equals(selectedTournamentName)) {
+                for (int i = 0; i < currentTournamentT.size(); i++) {
+                    if (currentTournamentT.get(i).getName().equals(selectedTournamentName)) {
                         Text text = new Text(currentTournamentT.get(i).getDetails());
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
@@ -136,14 +131,14 @@ public class AdminController implements Initializable {
         //                 "\nHas Finished? " + currentTournamentT[i].getHasFinished()
 
 
-        prevTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()  {
+        prevTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 selectedTournamentName = prevTournaments.getSelectionModel().getSelectedItem();
 
-                for(int i = 0; i < prevTournamentT.size(); i++) {
-                    if(prevTournamentT.get(i).getName().equals(selectedTournamentName)) { // get the object givin the name of the tournament
+                for (int i = 0; i < prevTournamentT.size(); i++) {
+                    if (prevTournamentT.get(i).getName().equals(selectedTournamentName)) { // get the object givin the name of the tournament
                         Text text = new Text(prevTournamentT.get(i).getDetails());
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
@@ -154,14 +149,14 @@ public class AdminController implements Initializable {
             }
         });
 
-        upcommingTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()  {
+        upcommingTournaments.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 selectedTournamentName = upcommingTournaments.getSelectionModel().getSelectedItem();
 
-                for(int i = 0; i < nexTournamentT.size(); i++) {
-                    if(nexTournamentT.get(i).getName().equals(selectedTournamentName)) {
+                for (int i = 0; i < nexTournamentT.size(); i++) {
+                    if (nexTournamentT.get(i).getName().equals(selectedTournamentName)) {
                         Text text = new Text(nexTournamentT.get(i).getDetails());
                         textFlow.getChildren().clear();
                         textFlow.getChildren().add(text);
@@ -173,6 +168,7 @@ public class AdminController implements Initializable {
         });
 
     }
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -181,7 +177,7 @@ public class AdminController implements Initializable {
     void toMatches(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("matchesByDate.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -190,6 +186,7 @@ public class AdminController implements Initializable {
         }
 
     }
+
     @FXML
     void toFilter(ActionEvent event) {
         Stage secondStage = new Stage();
@@ -215,12 +212,29 @@ public class AdminController implements Initializable {
     public void addTournament(ActionEvent actionEvent) {
         try {
             root = FXMLLoader.load(getClass().getResource("addTournament.fxml"));
-            stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void logout(ActionEvent actionEvent) {
+        Main.username = "Guest";
+        Main.isAdmin = false;
+
+        // go to firstPage
+        try{
+            root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

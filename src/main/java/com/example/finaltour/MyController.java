@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -118,23 +120,21 @@ public class MyController implements Initializable {
     ArrayList<Tournament> nexTournamentT = new ArrayList<>();
 
     ArrayList<Tournament> allTournaments = Main.tournaments;
+    ///
+    @FXML
+    Button logoutButton = new Button();
+    @FXML
+    Button myButton = new Button();
 
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
+    private BooleanProperty login = new SimpleBooleanProperty(Main.username.equals("Guest"));
+    private BooleanProperty logout = new SimpleBooleanProperty(!Main.username.equals("Guest"));
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //set the visibality of login button and logout button
+        myButton.visibleProperty().bind(login);
+        logoutButton.visibleProperty().bind(logout);
+
+        ///////
         welcomeMsg.setText("Welcome " + Main.username);
         for(Tournament tt: Main.tournaments){
             if(tt.getStatues().equals("Archived")){
@@ -262,4 +262,17 @@ public class MyController implements Initializable {
     }
 
 
+    public void logout(ActionEvent actionEvent) throws IOException {
+        Main.username = "Guest";
+        Main.isAdmin = false;
+        //set sign in button to visible
+
+
+        welcomeMsg.setText("Welcome " + Main.username);
+        root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

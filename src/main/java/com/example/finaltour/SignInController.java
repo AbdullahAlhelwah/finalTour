@@ -146,8 +146,8 @@ public class SignInController{
             stage.setScene(scene);
             stage.show();
             //change the visibility of login button if the user is logged in
-            if(Main.username != null){
-                Button loginButton = (Button) scene.lookup("#loginButton");
+            if(Main.username != "Guest"){
+                Button loginButton = (Button) scene.lookup("#myButton");
                 loginButton.setVisible(false);
                 //change the visibility of logout button
                 Button logoutButton = (Button) scene.lookup("#logoutButton");
