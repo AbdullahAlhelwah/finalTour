@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.finaltour.MatchesList"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaltour.matchesListController">
+   <children>
+      <TableView fx:id="table" layoutX="100.0" layoutY="129.0" prefHeight="323.0" prefWidth="502.0" stylesheets="@table_style.css">
+        <columns>
+          <TableColumn fx:id="team1Name" prefWidth="100.0" text="Team1" />
+          <TableColumn fx:id="result" prefWidth="100.0" text="result" />
+            <TableColumn fx:id="team2Name" prefWidth="100.0" text="Team2" />
+            <TableColumn fx:id="date" prefWidth="100.0" text="Date" />
+            <TableColumn fx:id="round" prefWidth="100.0" text="Round" />
+        </columns>
+      </TableView>
+      <Button layoutX="268.0" layoutY="491.0" mnemonicParsing="false" onAction="#toTournament" prefHeight="30.0" prefWidth="145.0" style="-fx-background-color: #0026be;" text="Tournament Page" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

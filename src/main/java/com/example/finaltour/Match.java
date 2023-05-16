@@ -15,6 +15,7 @@ public class Match implements Serializable{
     private String team1Name;
     private String team2Name;
     private String tourName;
+    private String result;
 
 
     //Match constructor
@@ -93,6 +94,10 @@ public class Match implements Serializable{
         return team2;
     }
 
+    public String getResult() {
+        return result;
+    }
+
     //Setters
     public void setDate(Date date) {
         this.date = date;
@@ -104,6 +109,9 @@ public class Match implements Serializable{
     public void setTeam2(Team team2) {
         this.team2 = team2;
         team2Name = team2.getName();
+    }
+    public void setResult(){
+        result = ""+goals1+"-"+goals2;
     }
 
     // a method to record the score of the match (We can use this method to edit the score as well as record it)
@@ -131,6 +139,7 @@ public class Match implements Serializable{
             goals1 = a;
             goals2 = b;
             finshed = true;
+            setResult();
             //check if the match is a round robin match
             if (tournament instanceof RoundRobin) {
                 team1.addGoalsReceived(b);
